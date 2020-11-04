@@ -1,5 +1,5 @@
 name: "Component testing"
-
+on:
 jobs:
     inputs:
         microservice:
