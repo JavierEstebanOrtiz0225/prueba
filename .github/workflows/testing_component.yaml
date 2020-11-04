@@ -19,7 +19,7 @@ jobs:
                     ls
                     docker image build -t component_test:1.0 .  	
                     docker run --name=test   --detach -p 3001:3001 component_test:1.0 
-                    docker exec -t test  bash -c "ls && cd /opt/app/testing_components_v1/component_test && node index.js"
+                    docker exec -t test  bash -c "ls && cd /opt/app/component_test && ls"
               env:
                 DATA: ${{ github.event.inputs.microservice }}
 
