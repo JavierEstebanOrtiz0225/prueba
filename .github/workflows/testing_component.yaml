@@ -1,10 +1,11 @@
 name: "Component testing"
-on:
-jobs:
-    inputs:
-        microservice:
-            description: Microservice name
+on: 
+    workflow_dispatch:
+        inputs:
+          microservice:
+            description: Microservicio a probar
             required: true
+jobs:
 
     init:
         runs-on: ubuntu-latest
