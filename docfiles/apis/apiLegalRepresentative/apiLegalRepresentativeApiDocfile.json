@@ -1,0 +1,5 @@
+{
+    "name": "LegalRepresentative",
+    "file": "./routes/apiLegalRepresentative.js",
+    "description": "This api deals  "
+}

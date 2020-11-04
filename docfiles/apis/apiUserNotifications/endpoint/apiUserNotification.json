@@ -1,0 +1,24 @@
+{
+    "info": {
+        "url": "/api/v1/user_notification",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Post user notification",
+                "description": "Create notification's user",
+                "method": "POST",
+                "testStrict": false
+            },
+            "req": {
+                "bodyData": {}
+            },
+            "res": {
+                "data": [],
+                "message": "The data was added",
+                "status": 200
+            }
+        }
+    }
+}

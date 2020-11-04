@@ -1,0 +1,42 @@
+{
+    "info": {
+        "url": "/api/v2/billing/entity/:id",
+        "version": 2
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I : Entity endpoint get billing info by entity",
+                "description": "Return: Get billing info by entity ",
+                "method": "GET",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {
+                    "Content-type": "application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {"id": "4d0d3fe0-8b96-11e9-b18b-2534b9541319"}
+                }
+            },
+            "res": {
+                "data": {
+                    "_id": "0005e660-8b97-11e9-b18b-2534b9541319",
+                    "entityId": "4d0d3fe0-8b96-11e9-b18b-2534b9541319",
+                    "occupation": "2260a966",
+                    "phone": "5635858e",
+                    "email": "b2a7ef334b5f7f4f92086e3e6a006505@mail.com",
+                    "firstName": "b3855a22",
+                    "secondName": "6ed6540b",
+                    "firstLastName": "064541cf",
+                    "secondLastName": "97f61f96",
+                    "createdAt": 1560181626820,
+                    "modifiedAt": null
+                },
+                "code": 200,
+                "status": 200
+            }
+        }
+    }
+}

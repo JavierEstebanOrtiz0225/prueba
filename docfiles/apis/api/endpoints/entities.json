@@ -1,0 +1,153 @@
+{
+  "info": {
+    "url": "/entities",
+    "version": 1
+  },
+  "useCases": {
+    "case_1": {
+      "infoCase": {
+        "title": "Case I: Get Entities",
+        "description": "Returns an array with all entities",
+        "method": "GET",
+        "testStrict": false
+      },
+      "req": {
+        "headers": {
+          "user-data": "eyJ1c2VySWQiOjUsInByb2ZpbGVJZCI6Ijg3MDM2MmIwLTk3NTEtMTFlNi04OGZmLWU3ZGNkYWQ2MTRmYSIsImVudGl0eUlkIjoiODZmZjFjZjAtOTc1MS0xMWU2LTg4ZmYtZTdkY2RhZDYxNGZhIiwicm9sZXMiOnsiaW52ZXN0b3IiOlsicmVhZCIsInVwZGF0ZSIsImNyZWF0ZSIsIm1lc2ZpeCIsImNvdmlub2MiXSwic2VsbGVyIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiLCJtZXNmaXgiLCJjb3Zpbm9jIl0sInN1cGVyIGFkbWluIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiXX19"
+        }
+      },
+      "res": {
+        "data": [],
+        "message": "Success",
+        "status": 200
+      }
+    },
+    "case_2": {
+      "infoCase": {
+        "title": "Case II: Get entities without user's data headers",
+        "description": "Returns bad request error",
+        "method": "GET",
+        "testStrict": true
+      },
+      "req": {
+      },
+      "res": {
+        "status": 400
+      }
+    },
+    "case_3": {
+      "infoCase": {
+        "title": "Case III: Create Entity",
+        "description": "Returns a new entity based on the given info",
+        "method": "POST",
+        "testStrict": true
+      },
+      "req": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "bodyData": {
+          "typeUser": 2,
+          "entityName": "juan",
+          "entityPhone": "123456",
+          "entityAddress": "calle 123",
+          "entityRegion": "cundinamarca",
+          "entityCity": "Bogotá",
+          "entityDocumentType": "C.C",
+          "entityDocument": "uniqueVariableData",
+          "verificationDigit": "43",
+          "chambersCommerce": "n/a",
+          "legalConcept": "n/a",
+          "businessSector": "n/a"
+        }
+      },
+      "res": {
+        "data": {
+          "_id": "auto-generated-string",
+          "contractsAccepted": false,
+          "documentsValidated": false,
+          "statusCrm": "lead",
+          "typeUser": 2,
+          "entityName": "juan",
+          "entityPhone": "123456",
+          "entityAddress": "calle 123",
+          "entityRegion": "cundinamarca",
+          "entityCity": "Bogotá",
+          "entityDocumentType": "C.C",
+          "entityDocument": "auto-generated-string",
+          "verificationDigit": "43",
+          "chambersCommerce": "n/a",
+          "legalConcept": "n/a",
+          "businessSector": "n/a",
+          "complete": false,
+          "createdAt": "auto-generated-string"
+        },
+        "message": "Success",
+        "status": 200
+      }
+    },
+    "case_4": {
+      "infoCase": {
+        "title": "Case IV: Update/Edit Entity",
+        "description": "Returns edited entity based on the given info",
+        "method": "PUT",
+        "testStrict": true
+      },
+      "req": {
+        "headers": {
+          "user-data": "eyJ1c2VySWQiOjUsInByb2ZpbGVJZCI6Ijg3MDM2MmIwLTk3NTEtMTFlNi04OGZmLWU3ZGNkYWQ2MTRmYSIsImVudGl0eUlkIjoiODZmZjFjZjAtOTc1MS0xMWU2LTg4ZmYtZTdkY2RhZDYxNGZhIiwicm9sZXMiOnsiaW52ZXN0b3IiOlsicmVhZCIsInVwZGF0ZSIsImNyZWF0ZSIsIm1lc2ZpeCIsImNvdmlub2MiXSwic2VsbGVyIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiLCJtZXNmaXgiLCJjb3Zpbm9jIl0sInN1cGVyIGFkbWluIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiXX19",
+          "Content-type": "application/json"
+        },
+        "bodyData": {
+          "_id": "005c3620-9a16-11e6-88ff-e7dcdad614fa",
+          "typeUser": 2,
+          "entityName": "juan",
+          "entityPhone": "123456",
+          "entityAddress": "calle 123",
+          "entityRegion": "cundinamarca",
+          "entityCity": "Bogotá",
+          "entityDocumentType": "C.C",
+          "entityDocument": "uniqueVariableData",
+          "verificationDigit": "43",
+          "chambersCommerce": "n/a",
+          "legalConcept": "n/a",
+          "businessSector": "n/a"
+        }
+      },
+      "res": {
+        "data": {
+          "_id": "auto-generated-string",
+          "legalRepresentativeId": "auto-generated-string",
+          "typeUser": 2,
+          "entityName": "juan",
+          "entityPhone": "123456",
+          "anual_sale": null,
+          "entityAddress": "calle 123",
+          "entityCity": "Bogotá",
+          "entityDocumentType": "C.C",
+          "entityRegion": "cundinamarca",
+          "entityDocument": "auto-generated-string",
+          "verificationDigit": "43",
+          "chambersCommerce": "n/a",
+          "complete": true,
+          "legalConcept": "n/a",
+          "businessSector": "n/a",
+          "femaleEmployees": null,
+          "maleEmployees": null,
+          "contractsAccepted": false,
+          "documentsValidated": false,
+          "createdAt": "auto-generated-numb",
+          "modifiedAt": "auto-generated-numb",
+          "bank": null,
+          "bankType": null,
+          "bankAccountNumber": null,
+          "resourcesAvailableInvest": null,
+          "hubspotId": null,
+          "statusCrm": "mql"
+        },
+        "message": "Success",
+        "status": 200
+      }
+    }
+  }
+}

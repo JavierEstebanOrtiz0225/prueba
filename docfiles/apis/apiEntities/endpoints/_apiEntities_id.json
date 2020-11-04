@@ -1,0 +1,94 @@
+{
+    "info": {
+        "url": "/api/v2/entities/:id",
+        "version": 2
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Get id entities",
+                "description": "Return all the entities or get the entities with the given ids",
+                "method": "GET",
+                "testStrict": false
+            },
+            "req": {
+                "headers": {
+                    "Content-Type":"application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {"id":"000d7350-409f-11e9-b8ff-e9be0a5cccd1"}
+                }
+            },
+            "res": {
+                "data": {
+                    "_id": "000d7350-409f-11e9-b8ff-e9be0a5cccd1",
+                    "legalRepresentativeId": "0010f5c0-409f-11e9-b8ff-e9be0a5cccd1",
+                    "typeUser": 1,
+                    "entityName": "3644d35f",
+                    "entityPhone": "e80a7de7",
+                    "anual_sale": null,
+                    "entityAddress": "a436172e",
+                    "entityCity": "BUENAVENTURA",
+                    "entityDocumentType": "NIT",
+                    "entityRegion": "VALLE DEL CAUCA",
+                    "entityDocument": "db4881fa",
+                    "verificationDigit": "2",
+                    "chambersCommerce": "BUENAVENTURA - VALLE",
+                    "legalConcept": "ONG",
+                    "businessSector": "OTROS SERVICIOS",
+                    "femaleEmployees": null,
+                    "maleEmployees": null,
+                    "complete": true,
+                    "contractsAccepted": false,
+                    "documentsValidated": false,
+                    "createdAt": 1551938725636,
+                    "modifiedAt": 1551940461505,
+                    "bank": null,
+                    "bankType": null,
+                    "bankAccountNumber": null,
+                    "resourcesAvailableInvest": null,
+                    "hubspotId": "1707789519",
+                    "statusCrm": "mql",
+                    "profiles": [
+                        {
+                            "_id": "0010f5c0-409f-11e9-b8ff-e9be0a5cccd1",
+                            "typeAccount": "01",
+                            "name": "c5e3cd8c",
+                            "secondName": null,
+                            "lastName": "8869f75e",
+                            "secondLastName": "74ab257e",
+                            "birthDate": 458197200000,
+                            "documentType": "C.C.",
+                            "source": null,
+                            "profession": null,
+                            "occupation": null,
+                            "genderType": null,
+                            "socioeconomicType": null,
+                            "document": "2252e642",
+                            "documentCity": "BUENAVENTURA",
+                            "documentRegion": "VALLE DEL CAUCA",
+                            "phone": "2f83956f",
+                            "address": "a436172e",
+                            "addressRegion": "VALLE DEL CAUCA",
+                            "addressCity": "BUENAVENTURA",
+                            "email": "ae9b285550298f55fdfd99a4b7bcec0f@mail.com",
+                            "entityId": "000d7350-409f-11e9-b8ff-e9be0a5cccd1",
+                            "maxValueTransaction": null,
+                            "complete": true,
+                            "contractsAccepted": false,
+                            "documentsValidated": false,
+                            "createdAt": 1551938725660,
+                            "modifiedAt": 1551940461528,
+                            "hubspotId": "22534451",
+                            "banned": false,
+                            "referred_email": null
+                        }
+                    ]
+                },
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

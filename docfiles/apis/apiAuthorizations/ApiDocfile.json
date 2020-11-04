@@ -1,0 +1,5 @@
+{
+    "name": "Authorizations",
+    "file": "./routes/apiAuthorizations.js",
+    "description": "This api deals with user's Authorizations"
+  }

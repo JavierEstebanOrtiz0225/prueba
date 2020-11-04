@@ -1,0 +1,78 @@
+{
+    "info": {
+        "url": "/registerUserV2",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Post user",
+                "description": "Create a new userbased on the given info",
+                "method": "POST",
+                "testStrict": false
+            },
+            "req": {
+                "headers": {
+                    "user-data": "eyJ1c2VySWQiOjUsInByb2ZpbGVJZCI6Ijg3MDM2MmIwLTk3NTEtMTFlNi04OGZmLWU3ZGNkYWQ2MTRmYSIsImVudGl0eUlkIjoiODZmZjFjZjAtOTc1MS0xMWU2LTg4ZmYtZTdkY2RhZDYxNGZhIiwicm9sZXMiOnsiaW52ZXN0b3IiOlsicmVhZCIsInVwZGF0ZSIsImNyZWF0ZSIsIm1lc2ZpeCIsImNvdmlub2MiXSwic2VsbGVyIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiLCJtZXNmaXgiLCJjb3Zpbm9jIl0sInN1cGVyIGFkbWluIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiXX19",
+                    "Content-Type": "application/json"
+                },
+                "bodyData": {
+                    "secondLastName": "",
+                    "phone": "1234567775",
+                    "typeAccount": "01",
+                    "typeUser": "20",
+                    "lastName": "ALGO",
+                    "secondName": "",
+                    "name": "JUAN",
+                    "email": "uniqueVariableData"
+                }
+            },
+            "res": {
+                "profile": {
+                    "_id": "auto-generated-string",
+                    "complete": false,
+                    "contractsAccepted": false,
+                    "documentsValidated": false,
+                    "banned": false,
+                    "email": "auto-generated-string",
+                    "phone": "1234567775",
+                    "lastName": "ALGO",
+                    "name": "JUAN",
+                    "typeAccount": "01",
+                    "entityId": "auto-generated-string",
+                    "createdAt": "auto-generated-numb"
+                },
+                "entity": {
+                    "_id": "auto-generated-string",
+                    "legalRepresentativeId": "auto-generated-string",
+                    "typeUser": 20,
+                    "entityName": null,
+                    "entityPhone": null,
+                    "anual_sale": null,
+                    "entityAddress": null,
+                    "entityCity": null,
+                    "entityDocumentType": null,
+                    "entityRegion": null,
+                    "entityDocument": null,
+                    "verificationDigit": null,
+                    "chambersCommerce": null,
+                    "legalConcept": null,
+                    "businessSector": null,
+                    "femaleEmployees": null,
+                    "maleEmployees": null,
+                    "contractsAccepted": false,
+                    "documentsValidated": false,
+                    "createdAt": "auto-generated-numb",
+                    "modifiedAt": "auto-generated-numb",
+                    "bank": null,
+                    "bankType": null,
+                    "bankAccountNumber": null,
+                    "resourcesAvailableInvest": null,
+                    "hubspotId": null,
+                    "statusCrm": "lead"
+                },
+                "status": 200
+            }
+        }
+    }
+}

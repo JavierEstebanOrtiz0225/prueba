@@ -1,0 +1,67 @@
+{
+  "bail": 0,
+  "changedFilesWithAncestor": false,
+  "collectCoverage": false,
+  "collectCoverageFrom": [],
+  "coverageDirectory": "/opt/app/testing_components_v1/component_test/coverage",
+  "coverageProvider": "babel",
+  "coverageReporters": [
+    "json",
+    "text",
+    "lcov",
+    "clover"
+  ],
+  "detectLeaks": false,
+  "detectOpenHandles": false,
+  "errorOnDeprecated": false,
+  "expand": false,
+  "findRelatedTests": false,
+  "forceExit": false,
+  "json": false,
+  "lastCommit": false,
+  "listTests": false,
+  "logHeapUsage": false,
+  "maxConcurrency": 5,
+  "maxWorkers": 1,
+  "noStackTrace": false,
+  "nonFlagArgs": [
+    "main.test.js"
+  ],
+  "notify": false,
+  "notifyMode": "failure-change",
+  "onlyChanged": false,
+  "onlyFailures": false,
+  "passWithNoTests": false,
+  "projects": [],
+  "reporters": [
+    [
+      "default",
+      {}
+    ],
+    [
+      "/opt/app/testing_components_v1/component_test/node_modules/jest-stare/lib/index.js",
+      {
+        "resultDir": "results/jest-stare/",
+        "reportTitle": "jest-stare!",
+        "additionalResultsProcessors": [],
+        "coverageLink": "../../coverage/lcov-report/index.html",
+        "jestStareConfigJson": "jest-stare.json",
+        "jestGlobalConfigJson": "globalStuff.json",
+        "resultHtml": "index.html",
+        "resultJson": "jest-results.json"
+      }
+    ]
+  ],
+  "rootDir": "/opt/app/testing_components_v1/component_test",
+  "runTestsByPath": false,
+  "skipFilter": false,
+  "testFailureExitCode": 1,
+  "testPathPattern": "main.test.js",
+  "testSequencer": "/opt/app/testing_components_v1/component_test/node_modules/@jest/test-sequencer/build/index.js",
+  "updateSnapshot": "new",
+  "useStderr": false,
+  "verbose": true,
+  "watch": false,
+  "watchAll": false,
+  "watchman": true
+}

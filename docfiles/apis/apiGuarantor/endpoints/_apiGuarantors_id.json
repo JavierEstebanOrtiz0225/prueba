@@ -1,0 +1,89 @@
+{
+    "info": {
+      "url": "/api/v2/guarantors/:id",
+      "version": 1
+    },
+    "useCases": {
+      "case_1":{
+        "infoCase": {
+          "title": "Case I: Put the guarantor",
+          "description": "Returns edited guarantor based on the given info",
+          "method": "PUT",
+          "testStrict": true
+        },
+        "req": {
+          "headers": {
+            "user-data": "eyJ1c2VySWQiOjUsInByb2ZpbGVJZCI6Ijg3MDM2MmIwLTk3NTEtMTFlNi04OGZmLWU3ZGNkYWQ2MTRmYSIsImVudGl0eUlkIjoiODZmZjFjZjAtOTc1MS0xMWU2LTg4ZmYtZTdkY2RhZDYxNGZhIiwicm9sZXMiOnsiaW52ZXN0b3IiOlsicmVhZCIsInVwZGF0ZSIsImNyZWF0ZSIsIm1lc2ZpeCIsImNvdmlub2MiXSwic2VsbGVyIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiLCJtZXNmaXgiLCJjb3Zpbm9jIl0sInN1cGVyIGFkbWluIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiXX19"
+          },
+          "params": {
+            "pathVariable": {
+              "id": "86ff1cf0-9751-11e6-88ff-e7dcdad614fa"
+            }
+          },
+          "bodyData": {
+            "typeUser": 1,
+            "entityName": "Empresa avalista SA",
+            "typeDocument": "Cédula de ciudadania",
+            "documentNumber": 1299838383,
+            "nit": 2345555,
+            "verificationDigit": 9,
+            "phone": "(305)12345678",
+            "email": "qqq@qqq.com",
+            "address": "Carrera 12 # 213-4",
+            "region": "Antoquia",
+            "city": "Medellin",
+            "firstName": "pepe",
+            "secondName": "fernando",
+            "firstLastName": "perez",
+            "secondLastName": "calderon",
+            "companyRelation": "Socio"
+          }
+        },
+        "res": {
+          "message": "Ha editado su aval",
+          "status": 200
+        }
+      },
+      "case_2":{
+        "infoCase": {
+          "title": "Case II: Delete the guarantor",
+          "description": "Delete the selected guarantor",
+          "method": "DELETE",
+          "testStrict": true
+        },
+        "req": {
+          "headers": {
+            "user-data": "eyJ1c2VySWQiOjUsInByb2ZpbGVJZCI6Ijg3MDM2MmIwLTk3NTEtMTFlNi04OGZmLWU3ZGNkYWQ2MTRmYSIsImVudGl0eUlkIjoiODZmZjFjZjAtOTc1MS0xMWU2LTg4ZmYtZTdkY2RhZDYxNGZhIiwicm9sZXMiOnsiaW52ZXN0b3IiOlsicmVhZCIsInVwZGF0ZSIsImNyZWF0ZSIsIm1lc2ZpeCIsImNvdmlub2MiXSwic2VsbGVyIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiLCJtZXNmaXgiLCJjb3Zpbm9jIl0sInN1cGVyIGFkbWluIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiXX19"
+          },
+          "params": {
+            "pathVariable": "cb994090-a5b9-11e6-9e77-0d2fa5aec730"          
+          }
+        },
+        "res": {
+          "data": {
+            "deleted": true
+          },
+          "message": "Ha eliminado su aval",
+          "status": 200
+        }
+      },
+      "case_3": {
+        "infoCase": {
+          "title": "Case III: Get the guarantor",
+          "description": "Returns an array whit all guarantor's info",
+          "method": "GET",
+          "testStrict": false
+        },
+        "req": {
+          "params": {
+            "pathVariable": "cb994090-a5b9-11e6-9e77-0d2fa5aec730"
+          }
+        },
+        "res": {
+          "data": {},
+          "message": "Success",
+          "status": 200
+        }
+      }
+  }
+}

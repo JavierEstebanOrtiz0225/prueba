@@ -1,0 +1,6 @@
+{
+  "name": "be-entity",
+  "host": "ENTITY_HOST",
+  "port": "ENTITY_PORT",
+  "description": "This microservice deals with costumer's information"
+}

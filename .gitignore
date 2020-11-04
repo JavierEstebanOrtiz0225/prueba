@@ -1,0 +1,3 @@
+selenium-jest/node_modules/*
+/node_modules/*
+component_test/node_modules/*

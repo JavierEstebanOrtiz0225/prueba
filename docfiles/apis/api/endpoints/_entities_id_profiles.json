@@ -1,0 +1,28 @@
+{
+    "info": {
+      "url": "/entities/:id/profiles",
+      "version": 1
+    },
+    "useCases": {
+        "case_1": {
+        "infoCase": {
+            "title": "Case I: Delete profile entities ",
+            "description": "Returns an array with the profile entity deleted by id",
+            "method": "DELETE",
+            "testStrict": true
+        },
+        "req": {
+            "params": {
+                "pathVariable": {
+                    "id": "22026920-6a51-11ea-98a8-291402e205e3"
+                }
+            }
+        },
+        "res": {
+            "data": 0,
+            "message": "Success",
+            "status": 200
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "info": {
+        "url": "/api/v2/entities/bank",
+        "version": 2
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: get bank account information",
+                "description": "Get the primary accounts",
+                "method": "GET",
+                "testStrict": false
+            },
+            "req": {
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {}
+                }
+            },
+            "res": {
+                "page": 1,
+                "data": [],
+                "status": 200
+            }
+        }
+    }
+}

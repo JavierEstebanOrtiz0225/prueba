@@ -1,0 +1,69 @@
+{
+    "info": {
+        "url": "/api/v2/commercial/:id",
+        "version": 2
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I : Get commercial",
+                "description": "Obtain commercial by ID",
+                "method": "GET",
+                "testStrict": false
+            },
+            "req": {
+                "headers": {
+                    "Content-type": "application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {"id":"28add8b0-54bf-11ea-9ca7-5f31875e8d4b"}
+                }
+
+            },
+            "res": {
+                "data": {
+                    "_id": "172d3740-5297-11ea-91fd-0b1dbf484bf2",
+                    "phone": "(305)12345678",
+                    "email": "jose@qqq.com",
+                    "firstName": "JOSE",
+                    "secondName": "PEPE",
+                    "firstLastName": "PORTU",
+                    "secondLastName": "ROJAS",
+                    "commission": null,
+                    "type": "Comercial",
+                    "createdAt": 1582061947059,
+                    "modifiedAt": null
+                },
+                "message": "Success",
+                "status": 200
+            }
+        },
+        "case_2": {
+            "infoCase": {
+                "title": "Case II : Delete commercial",
+                "description": "Delete commercial by ID",
+                "method": "DELETE",
+                "testStrict": false
+            },
+            "req": {
+                "headers": {
+                    "user-data": "eyJ1c2VySWQiOjUsInByb2ZpbGVJZCI6Ijg3MDM2MmIwLTk3NTEtMTFlNi04OGZmLWU3ZGNkYWQ2MTRmYSIsImVudGl0eUlkIjoiODZmZjFjZjAtOTc1MS0xMWU2LTg4ZmYtZTdkY2RhZDYxNGZhIiwicm9sZXMiOnsiaW52ZXN0b3IiOlsicmVhZCIsInVwZGF0ZSIsImNyZWF0ZSIsIm1lc2ZpeCIsImNvdmlub2MiXSwic2VsbGVyIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiLCJtZXNmaXgiLCJjb3Zpbm9jIl0sInN1cGVyIGFkbWluIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiXX19"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {"id":"28add8b0-54bf-11ea-9ca7-5f31875e8d4b"}
+                }
+
+            },
+            "res": {
+                "data": {
+                    "deleted": 1,
+                    "code": 200
+                },
+                "message": "Ha eliminado el Comercial.",
+                "status": 200
+            }
+        }        
+    }
+}

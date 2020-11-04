@@ -1,0 +1,32 @@
+{
+    "info": {
+        "url": "/api/v2/commercial/list",
+        "version": 2
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I : List of commercial",
+                "description": "Get the list of all commercials",
+                "method": "GET",
+                "testStrict": false
+            },
+            "req": {
+                "headers": {
+                    "Content-type": "application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {}
+                }
+
+            },
+            "res": {
+                "data": [],
+                "code": 200,
+                "message": "Success.",
+                "status": 200
+            }
+        }
+    }
+}

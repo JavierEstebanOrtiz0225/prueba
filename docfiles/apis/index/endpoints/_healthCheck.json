@@ -1,0 +1,20 @@
+{
+    "info": {
+        "url": "/healthCheck",
+        "version": 1
+    },
+    "useCases": {
+        "case_1":{
+          "infoCase": {
+            "title": "Case I: Get the entities and profiles",
+            "description": "Get the entities and profiles whit the ids given in the query",
+            "method": "GET",
+            "testStrict": true
+          },
+          "req": {},
+          "res": {
+            "status": 200
+          }
+        }
+    }
+}

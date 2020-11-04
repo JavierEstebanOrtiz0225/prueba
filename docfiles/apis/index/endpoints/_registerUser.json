@@ -1,0 +1,75 @@
+{
+    "info": {
+        "url": "/registerUser",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Post user",
+                "description": "Create a new userbased on the given info",
+                "method": "POST",
+                "testStrict": false
+            },
+            "req": {
+                "headers": {
+                    "user-data": "eyJ1c2VySWQiOjUsInByb2ZpbGVJZCI6Ijg3MDM2MmIwLTk3NTEtMTFlNi04OGZmLWU3ZGNkYWQ2MTRmYSIsImVudGl0eUlkIjoiODZmZjFjZjAtOTc1MS0xMWU2LTg4ZmYtZTdkY2RhZDYxNGZhIiwicm9sZXMiOnsiaW52ZXN0b3IiOlsicmVhZCIsInVwZGF0ZSIsImNyZWF0ZSIsIm1lc2ZpeCIsImNvdmlub2MiXSwic2VsbGVyIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiLCJtZXNmaXgiLCJjb3Zpbm9jIl0sInN1cGVyIGFkbWluIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiXX19",
+                    "Content-Type": "application/json"
+                },
+                "bodyData": {
+                    "secondLastName": "",
+                    "phone": "1234567765",
+                    "typeAccount": "10",
+                    "typeUser": "22",
+                    "lastName": "ALGO",
+                    "secondName": "",
+                    "name": "JUAN",
+                    "email": "uniqueVariableData"
+                }
+            },
+            "res": {
+                "profile": {
+                    "_id": "53c2bfd0-624c-11ea-b4ae-a93900bf366b",
+                    "complete": false,
+                    "contractsAccepted": false,
+                    "documentsValidated": false,
+                    "banned": false,
+                    "email": "auto-generate-string",
+                    "typeAccount": "01",
+                    "entityId": "53bccc60-624c-11ea-b4ae-a93900bf366b",
+                    "createdAt": 1583789055050
+                },
+                "entity": {
+                    "_id": "53bccc60-624c-11ea-b4ae-a93900bf366b",
+                    "legalRepresentativeId": "53c2bfd0-624c-11ea-b4ae-a93900bf366b",
+                    "typeUser": 2,
+                    "entityName": null,
+                    "entityPhone": null,
+                    "anual_sale": null,
+                    "entityAddress": null,
+                    "entityCity": null,
+                    "entityDocumentType": null,
+                    "entityRegion": null,
+                    "entityDocument": null,
+                    "verificationDigit": null,
+                    "chambersCommerce": null,
+                    "legalConcept": null,
+                    "businessSector": null,
+                    "femaleEmployees": null,
+                    "maleEmployees": null,
+                    "contractsAccepted": false,
+                    "documentsValidated": false,
+                    "createdAt": 1583789055014,
+                    "modifiedAt": 1583789055072,
+                    "bank": null,
+                    "bankType": null,
+                    "bankAccountNumber": null,
+                    "resourcesAvailableInvest": null,
+                    "hubspotId": null,
+                    "statusCrm": "lead"
+                },
+                "status": 200
+            }
+        }
+    }
+}

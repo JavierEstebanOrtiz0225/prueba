@@ -1,0 +1,85 @@
+{
+    "info": {
+        "url": "/api/v1/legal_representative/:id",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Delete legal representative",
+                "description": "Delete the legal representative by id",
+                "method": "DELETE",
+                "testStrict": true
+            },
+            "req": {
+                "params": {
+                    "pathVariable": {
+                        "id": "lala"
+                    }
+                },
+                "subRequests": [
+                    {
+                        "toReplace": [
+                            {
+                                "keyToReplace": "params.pathVariable.id",
+                                "valueToUse": "data._id"
+                            }
+                        ],
+                        "endpointFile": "/opt/app/testing_components_v1/component_test/docfiles/apis/apiLegalRepresentative/endpoints/_apiLegalRepresentative.json",
+                        "case": "case_2",
+                        "port": "ENTITY_PORT",
+                        "host": "ENTITY_HOST"
+                    }
+                ]
+            },
+            "res": {
+                "message": "Legal representative has been deleted",
+                "code": 200,
+                "status": 200
+            }
+        },
+        "case_2": {
+            "infoCase": {
+                "title": "Case II: Update/edit legal representative by id",
+                "description": "Returns edited legal representative by id",
+                "method": "PUT",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {
+                    "Content-type": "application/json"
+                },
+                "params": {
+                    "pathVariable": {
+                        "id": "lala"
+                    }
+                },
+                "bodyData": {
+                    "manualReview": 1
+                },
+                "subRequests": [
+                    {
+                        "toReplace": [
+                            {
+                                "keyToReplace": "params.pathVariable.id",
+                                "valueToUse": "data._id"
+                            }
+                        ],
+                        "endpointFile": "/opt/app/testing_components_v1/component_test/docfiles/apis/apiLegalRepresentative/endpoints/_apiLegalRepresentative.json",
+                        "case": "case_2",
+                        "port": "ENTITY_PORT",
+                        "host": "ENTITY_HOST"
+                    }
+                ]
+            },
+            "res": {
+                "data": {
+                    "updated": true
+                },
+                "message": "Ha editado su información",
+                "code": 200,
+                "status": 200
+            }
+        }
+    }
+}

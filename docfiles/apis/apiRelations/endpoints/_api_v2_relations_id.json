@@ -1,0 +1,37 @@
+{
+    "info": {
+        "url": "/api/v2/relations/:id",
+        "version": 2
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Get relations by id",
+                "description": "Returns Get the relations by seller id",
+                "method": "PUT",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {},
+                "params": {
+                    "query": {},
+                    "pathVariable": {
+                        "id": "0107a3c0-552c-11e8-b77a-bd4123be36cd"
+                    }
+                },
+                "bodyData": {
+                    "verified": 1,
+                    "nit": "12345",
+                    "nit_verification_code": "2",
+                    "company_name": "Perez",
+                    "contact_name": "Perez",
+                    "contact_email": "Perez@perez.com"
+                }
+            },
+            "res": {
+                
+                "status": 200
+            }
+        }
+    }
+}

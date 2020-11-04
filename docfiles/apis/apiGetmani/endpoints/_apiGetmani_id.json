@@ -1,0 +1,38 @@
+{
+    "info": {
+        "url": "/api/v1/getmati/:id",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case II: Update information of user",
+                "description": "Edit user information by id",
+                "method": "PUT",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {
+                        "id": "1559195539528"
+                    }
+                },
+                "bodyData": {
+                    "manualReview": 1
+                }
+            },
+            "res": {
+                "data": {
+                    "updated": true
+                },
+                "message": "Ha editado su información",
+                "code": 200,
+                "status": 200
+            }
+        }
+    }
+}

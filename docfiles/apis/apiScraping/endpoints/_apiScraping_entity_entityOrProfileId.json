@@ -1,0 +1,92 @@
+{
+  "info": {
+    "url": "/api/v1/scraping/entity/:entityOrProfileId",
+    "version": 1
+  },
+  "useCases": {
+    "case_1": {
+      "infoCase": {
+        "title": "Case I: Create scraping",
+        "description": "Returns an new scrapping for entity or profile",
+        "method": "POST",
+        "testStrict": true
+      },
+      "req": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "params": {
+          "query": {
+            "personType": "<1,2>" 
+          },
+          "pathVariable": {
+            "entityOrProfileId": "bc67bb70-5997-11ea-8ff4-a93e353bb93f"
+          }
+        },
+        "bodyData": {
+          "name": "DIAN",
+          "status": "consultando"
+        }
+      },
+      "res": {
+        "data": [
+            1
+        ],
+        "message": "Created successfully.",
+        "code": 200,
+        "status": 200
+      }
+    },
+    "case_2": {
+      "infoCase": {
+        "title": "Case II: Get scrapping (consulted)",
+        "description": "Returns scrapping for entity and profile",
+        "method": "GET",
+        "testStrict": true
+      },
+      "req": {
+        "params": {
+          "query": {
+            "name": "DIAN",
+            "personType": "<1,2>"
+          },
+          "pathVariable": {
+            "entityOrProfileId": "f65c3c60-597f-11ea-8ff4-a93e353bb93f"
+          }
+        }
+      },
+      "res": {
+        "data": null,
+        "code": 200,
+        "status": 200
+      }
+    },
+    "case_3": {
+      "infoCase": {
+        "title": "Case III: Update scrapping",
+        "description": "Returns edited scrapping for entity or profile",
+        "method": "PUT",
+        "testStrict": true
+      },
+      "req": {
+        "params": {
+          "query": {
+            "personType": "<1,2>"
+          },
+          "pathVariable": {
+            "entityOrProfileId": "4874ba10-58ac-11ea-9170-5d8191012f06"
+          }
+        },
+        "bodyData": {
+          "name": "DIAN",
+          "status": "consultado"
+        }
+      },
+      "res": {
+        "message": "Updated successfully.",
+        "code": 200,
+        "status": 200
+      }
+    }
+  }
+}

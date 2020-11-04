@@ -1,0 +1,29 @@
+{
+    "info": {
+        "url": "/events/:id/:eventId",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Get the user's events",
+                "description": "Return an array with the all events by id",
+                "method": "GET",
+                "testStrict": true
+            },
+            "req": {
+                "params": {
+                    "pathVariable": {
+                      "id": "005c3620-9a16-11e6-88ff-e7dcdad614fa",
+                      "eventId": "5b0f2a9c7dcda229d74d"
+                    }
+                  }
+            },
+            "res": {
+                "data": null,
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

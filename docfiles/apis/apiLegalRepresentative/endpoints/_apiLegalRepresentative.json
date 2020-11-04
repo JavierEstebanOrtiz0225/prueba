@@ -1,0 +1,81 @@
+{
+  "info": {
+    "url": "/api/v1/legal_representative",
+    "version": 1
+  },
+  "useCases": {
+    "case_1": {
+      "infoCase": {
+        "title": "Case I: Create legal representative",
+        "description": "Returns an new legal representative based on the given info",
+        "method": "POST",
+        "testStrict": true
+      },
+      "req": {
+        "bodyData": {
+          "entityId": "86ff1cf0-9751-11e6-88ff-e7dcdad614fa",
+          "documentNumber": "700011",
+          "documentType": "CC",
+          "email": "jm.robles@mesfix.com"
+        }
+      },
+      "res": {
+        "data": {
+          "_id": "auto-generated-string",
+          "tryNumber": 0,
+          "entityId": "86ff1cf0-9751-11e6-88ff-e7dcdad614fa",
+          "documentNumber": "700011",
+          "documentType": "CC",
+          "email": "jm.robles@mesfix.com",
+          "createdAt": "auto-generated-numb"
+        },
+        "message": "The data was added",
+        "status": 200
+      }
+    },
+    "case_2": {
+      "infoCase": {
+        "title": "Case II: Get legal representative",
+        "description": "Returns an array with legal representative",
+        "method": "GET",
+        "testStrict": true
+      },
+      "req": {
+        "params": {
+          "query": {
+            "id": "lala",
+            "entity_id": "86ff1cf0-9751-11e6-88ff-e7dcdad614fa"
+          }
+        },
+        "subRequests": [
+          {
+            "toReplace": [
+              {
+                "keyToReplace": "params.query.id",
+                "valueToUse": "data._id"
+              }
+            ],
+            "endpointFile": "/opt/app/testing_components_v1/component_test/docfiles/apis/apiLegalRepresentative/endpoints/_apiLegalRepresentative.json",
+            "case": "case_1",
+            "port": "ENTITY_PORT",
+            "host": "ENTITY_HOST"
+          }
+        ]
+      },
+      "res": {
+        "data": {
+          "_id": "auto-generated-string",
+          "entityId": "86ff1cf0-9751-11e6-88ff-e7dcdad614fa",
+          "documentNumber": "700011",
+          "documentType": "CC",
+          "email": "jm.robles@mesfix.com",
+          "tryNumber": 0,
+          "createdAt": "auto-generated-number",
+          "modifiedAt": null
+        },
+        "message": "Success",
+        "status": 200
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+    "info": {
+        "url": "/relations/delete/:id",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Deletes the relation with the id give",
+                "description": "Returns an array with of the ",
+                "method": "GET",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {
+                        "id": "7eaa07b0-208d-11e8-ac7b-337338b82b07"
+                    }
+                }
+            },
+            "res": {
+                "data": 0,
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

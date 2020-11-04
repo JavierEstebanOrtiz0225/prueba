@@ -1,0 +1,49 @@
+{
+    "info": {
+        "url": "/api/v2/commercial",
+        "version": 2
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I : New commercial",
+                "description": "create a new commercial",
+                "method": "POST",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {
+                    "Content-type": "application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {}
+                },
+                "bodyData": {
+                        "type": "Comercial",
+                        "phone": "(305)12345678",
+                        "email": "jose@qqq.com",
+                        "firstName": "JOSE",
+                        "secondName": "PEPE",
+                        "firstLastName": "PORTU",
+                        "secondLastName": "ROJAS"                   
+                }
+            },
+            "res": {
+                "data": {
+                    "_id": "auto-generated-string",
+                    "type": "Comercial",
+                    "phone": "(305)12345678",
+                    "email": "jose@qqq.com",
+                    "firstName": "JOSE",
+                    "secondName": "PEPE",
+                    "firstLastName": "PORTU",
+                    "secondLastName": "ROJAS",
+                    "createdAt": "auto-generated-int"
+                },
+                "message": "Ha agregado un Comercial exitosamente",
+                "status": 200
+            }
+        }
+    }
+}

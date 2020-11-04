@@ -1,0 +1,28 @@
+{
+    "info": {
+        "url": "/api/v2/profiles/custom-search-profiles-entities-ids?",
+        "version": 2
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Get the profiles by custom search",
+                "description": "Returns arrray with profiles custom search for profiles and entities",
+                "method": "GET",
+                "testStrict": false
+            },
+            "req": {
+                "params": {
+                    "query": {
+                        "query_request": "tostao"
+                    }
+                }
+            },
+            "res": {
+                "data": [],
+                "message": "Request retrieved successfully",
+                "status": 200
+            }
+        }
+    }
+}

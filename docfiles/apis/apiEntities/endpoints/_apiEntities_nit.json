@@ -1,0 +1,59 @@
+{
+    "info": {
+        "url": "/api/v2/entities/nit/:nit",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Get entities with identifier type NIT",
+                "description": "Returns - Get all entities or get entities with given identifiers nit or id ",
+                "method": "GET",
+                "testStrict": false
+            },
+            "req": {
+                "headers": {
+                    "Content-Type":"application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {"nit":"db4881fa"}
+                }
+            },
+            "res": {
+                "data": {
+                    "_id": "000d7350-409f-11e9-b8ff-e9be0a5cccd1",
+                    "legalRepresentativeId": "0010f5c0-409f-11e9-b8ff-e9be0a5cccd1",
+                    "typeUser": 1,
+                    "entityName": "3644d35f",
+                    "entityPhone": "e80a7de7",
+                    "anual_sale": null,
+                    "entityAddress": "a436172e",
+                    "entityCity": "BUENAVENTURA",
+                    "entityDocumentType": "NIT",
+                    "entityRegion": "VALLE DEL CAUCA",
+                    "entityDocument": "db4881fa",
+                    "verificationDigit": "2",
+                    "chambersCommerce": "BUENAVENTURA - VALLE",
+                    "legalConcept": "ONG",
+                    "businessSector": "OTROS SERVICIOS",
+                    "femaleEmployees": null,
+                    "maleEmployees": null,
+                    "complete": true,
+                    "contractsAccepted": false,
+                    "documentsValidated": false,
+                    "createdAt": 1551938725636,
+                    "modifiedAt": 1551940461505,
+                    "bank": null,
+                    "bankType": null,
+                    "bankAccountNumber": null,
+                    "resourcesAvailableInvest": null,
+                    "hubspotId": "1707789519",
+                    "statusCrm": "mql"
+                },
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "info": {
+        "url": "/users/getUsersByDate",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Get entities and profiles with identifiers",
+                "description": "Get the entities and profiles with the ids given in the query",
+                "method": "POST",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {},
+                "params": {
+                    "query": {},
+                    "pathVariable": {}
+                },
+                "bodyData": {
+                    "init_date": 1552107600000,
+                    "end_date": 1583730000000
+                }
+            },
+            "res": {
+                "seller": {
+                    "received_mail": 0,
+                    "verified_account": 0,
+                    "created_password": 0,
+                    "legal_representative": 0,
+                    "accepted_documents": 0,
+                    "contracts_accepted": 0,
+                    "user_active": 0,
+                    "entity_complete": 0
+                },
+                "investor": {
+                    "received_mail": 0,
+                    "verified_account": 0,
+                    "created_password": 0,
+                    "legal_representative": 0,
+                    "accepted_documents": 0,
+                    "contracts_accepted": 0,
+                    "user_active": 0,
+                    "entity_complete": 0
+                },
+                "status": 200
+            }
+        }
+    }
+}

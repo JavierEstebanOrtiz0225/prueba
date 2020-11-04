@@ -1,0 +1,90 @@
+{
+    "info": {
+        "url": "/api/v2/profiles/entity/:id",
+        "version": 2
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Get profiles by entities",
+                "description": "Returns arrray with profiles custom search for profiles and entities",
+                "method": "GET",
+                "testStrict":false
+            },
+            "req": {
+                "params": {
+                    "pathVariable": {
+                        "id": "005c3620-9a16-11e6-88ff-e7dcdad614fa"
+                    }
+                }
+            },
+            "res": {
+                "data": {
+                    "_id": "00613f30-9a16-11e6-88ff-e7dcdad614fa",
+                    "typeAccount": "10",
+                    "name": "c44688b5",
+                    "secondName": null,
+                    "lastName": "33d8f95b",
+                    "secondLastName": "f66750cc",
+                    "birthDate": 303436800000,
+                    "documentType": "C.C.",
+                    "source": null,
+                    "profession": null,
+                    "occupation": null,
+                    "genderType": null,
+                    "socioeconomicType": null,
+                    "document": "75512a89",
+                    "documentCity": "BOGOTA",
+                    "documentRegion": "BOGOTÁ, D. C.",
+                    "phone": "c25c53d0",
+                    "address": "d4cd0dab",
+                    "addressRegion": "BOGOTÁ, D. C.",
+                    "addressCity": "BOGOTA",
+                    "email": "9f13f0ff5f5f41f5598ad755f192ca3a@mail.com",
+                    "entityId": "005c3620-9a16-11e6-88ff-e7dcdad614fa",
+                    "maxValueTransaction": null,
+                    "complete": true,
+                    "contractsAccepted": false,
+                    "documentsValidated": false,
+                    "createdAt": 1477332996771,
+                    "modifiedAt": null,
+                    "hubspotId": null,
+                    "banned": false,
+                    "referred_email": null,
+                    "entity": {
+                        "_id": "005c3620-9a16-11e6-88ff-e7dcdad614fa",
+                        "legalRepresentativeId": "00613f30-9a16-11e6-88ff-e7dcdad614fa",
+                        "typeUser": 2,
+                        "entityName": "juan",
+                        "entityPhone": "123456",
+                        "anual_sale": null,
+                        "entityAddress": "calle 123",
+                        "entityCity": "Bogotá",
+                        "entityDocumentType": "C.C",
+                        "entityRegion": "cundinamarca",
+                        "entityDocument": "1584060820907",
+                        "verificationDigit": "43",
+                        "chambersCommerce": "n/a",
+                        "legalConcept": "n/a",
+                        "businessSector": "n/a",
+                        "femaleEmployees": null,
+                        "maleEmployees": null,
+                        "complete": true,
+                        "contractsAccepted": false,
+                        "documentsValidated": false,
+                        "createdAt": 1477332996737,
+                        "modifiedAt": "1584060820942",
+                        "bank": null,
+                        "bankType": null,
+                        "bankAccountNumber": null,
+                        "resourcesAvailableInvest": null,
+                        "hubspotId": null,
+                        "statusCrm": "mql"
+                    }
+                },
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

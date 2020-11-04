@@ -1,0 +1,5 @@
+{
+    "name": "apiBankAccount",
+    "file": "./routes/apiBankAccount.js",
+    "description": "This api deals with user's apiBankAccount"
+  } 

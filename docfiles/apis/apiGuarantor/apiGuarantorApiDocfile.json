@@ -1,0 +1,5 @@
+{
+    "name": "ApiGuarantors",
+    "file": "./routes/apiGuarantors.js",
+    "description": "This api (add description to Guarantors)."
+}

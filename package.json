@@ -1,0 +1,22 @@
+{
+  "name": "component_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest main.test.js",
+    "debbug": "node --inspect-brk node_modules/.bin/jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "express": "^4.17.1",
+    "jest": "^25.1.0",
+    "jest-html-reporters": "^2.1.0",
+    "jest_stare": "^2.2.0"
+  }
+}

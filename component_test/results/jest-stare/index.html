@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>jest-stare!</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/diff2html.min.css" rel="stylesheet" type="text/css">
+    <link href="css/jest-stare.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/holder.js"></script>
+    <script src="js/diff2html.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/view.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" id="navbar-title" href="#">jest-stare</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="coverage-link" class="nav-link disabled" href="#">Coverage</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-passoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-passoff-switch">
+                                <span class="pass off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-failoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-failoff-switch">
+                                <span class="fail off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-pendingoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-pendingoff-switch">
+                                <span class="pending off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-todooff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-todooff-switch">
+                                <span class="todo off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" disabled>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" disabled>Search</button>
+                </form> -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+
+        <h1 class="mt-5"></h1>
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <canvas id="test-suites-canvas" width="100" height="100"></canvas>
+                <h2>Test Suites</h2>
+                <div class="list-group">
+                    <p id="test-suites-results" class="list-group-item list-group-item-action">1 passed, 1 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <canvas id="tests-canvas" width="100" height="100"></canvas>
+                <h2>Tests</h2>
+                <div class="list-group">
+                    <p id="tests-results" class="list-group-item list-group-item-action">85 passed, 85 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4" id="snapshots-group">
+                <canvas id="snapshots-canvas" width="100" height="100"></canvas>
+                <h2>Snapshots</h2>
+                <div class="list-group">
+                    <p id="snapshots-results" class="list-group-item list-group-item-action">0 passed, 0 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+
+        <div id="loading-info" class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                aria-valuemax="100" style="width: 100%"></div>
+        </div>
+
+        <div class="d-none" id="test-summary"></div>
+        <div class="d-none" id="test-config">{
+  &quot;resultDir&quot;: &quot;results&#x2F;jest-stare&#x2F;&quot;,
+  &quot;reportTitle&quot;: &quot;jest-stare!&quot;,
+  &quot;additionalResultsProcessors&quot;: [],
+  &quot;coverageLink&quot;: &quot;..&#x2F;..&#x2F;coverage&#x2F;lcov-report&#x2F;index.html&quot;,
+  &quot;jestStareConfigJson&quot;: &quot;jest-stare.json&quot;,
+  &quot;jestGlobalConfigJson&quot;: &quot;globalStuff.json&quot;,
+  &quot;resultHtml&quot;: &quot;index.html&quot;,
+  &quot;resultJson&quot;: &quot;jest-results.json&quot;
+}</div>
+        <div id="accordion">
+            <div class="d-none" id="test-results">{
+  &quot;numFailedTestSuites&quot;: 0,
+  &quot;numFailedTests&quot;: 0,
+  &quot;numPassedTestSuites&quot;: 1,
+  &quot;numPassedTests&quot;: 85,
+  &quot;numPendingTestSuites&quot;: 0,
+  &quot;numPendingTests&quot;: 0,
+  &quot;numRuntimeErrorTestSuites&quot;: 0,
+  &quot;numTodoTests&quot;: 0,
+  &quot;numTotalTestSuites&quot;: 1,
+  &quot;numTotalTests&quot;: 85,
+  &quot;openHandles&quot;: [],
+  &quot;snapshot&quot;: {
+    &quot;added&quot;: 0,
+    &quot;didUpdate&quot;: false,
+    &quot;failure&quot;: false,
+    &quot;filesAdded&quot;: 0,
+    &quot;filesRemoved&quot;: 0,
+    &quot;filesRemovedList&quot;: [],
+    &quot;filesUnmatched&quot;: 0,
+    &quot;filesUpdated&quot;: 0,
+    &quot;matched&quot;: 0,
+    &quot;total&quot;: 0,
+    &quot;unchecked&quot;: 0,
+    &quot;uncheckedKeysByFile&quot;: [],
+    &quot;unmatched&quot;: 0,
+    &quot;updated&quot;: 0
+  },
+  &quot;startTime&quot;: 1603461713276,
+  &quot;success&quot;: false,
+  &quot;testResults&quot;: [
+    {
+      &quot;leaks&quot;: false,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 85,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;openHandles&quot;: [],
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1603461743023,
+        &quot;start&quot;: 1603461714007
+      },
+      &quot;skipped&quot;: false,
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;&#x2F;opt&#x2F;app&#x2F;testing_components_v1&#x2F;component_test&#x2F;main.test.js&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Entities] Api&quot;,
+            &quot; Endpoint: &#x2F;entities&#x2F;:entity_id&#x2F;profiles&quot;
+          ],
+          &quot;duration&quot;: 331,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Entities] Api  Endpoint: &#x2F;entities&#x2F;:entity_id&#x2F;profiles [POST] Case I: Post Entities profile&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I: Post Entities profile&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Entities] Api&quot;,
+            &quot; Endpoint: &#x2F;entities&#x2F;getEntitiesList&quot;
+          ],
+          &quot;duration&quot;: 13,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Entities] Api  Endpoint: &#x2F;entities&#x2F;getEntitiesList [POST] Case I: Create Entity List&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I: Create Entity List&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Entities] Api&quot;,
+            &quot; Endpoint: &#x2F;entities&#x2F;getRelations&#x2F;:entity_id&quot;
+          ],
+          &quot;duration&quot;: 34,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Entities] Api  Endpoint: &#x2F;entities&#x2F;getRelations&#x2F;:entity_id [GET] Case I: Get relations of entities by id&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get relations of entities by id&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Entities] Api&quot;,
+            &quot; Endpoint: &#x2F;entities&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 12,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Entities] Api  Endpoint: &#x2F;entities&#x2F;:id [DELETE] Case I: Delete entities&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[DELETE] Case I: Delete entities&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Entities] Api&quot;,
+            &quot; Endpoint: &#x2F;entities&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 11,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Entities] Api  Endpoint: &#x2F;entities&#x2F;:id [GET] Case II: Get entities by id&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case II: Get entities by id&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Entities] Api&quot;,
+            &quot; Endpoint: &#x2F;entities&#x2F;:id&#x2F;profiles&quot;
+          ],
+          &quot;duration&quot;: 23,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Entities] Api  Endpoint: &#x2F;entities&#x2F;:id&#x2F;profiles [DELETE] Case I: Delete profile entities &quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[DELETE] Case I: Delete profile entities &quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Entities] Api&quot;,
+            &quot; Endpoint: &#x2F;entities&#x2F;legal&#x2F;all&quot;
+          ],
+          &quot;duration&quot;: 20,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Entities] Api  Endpoint: &#x2F;entities&#x2F;legal&#x2F;all [GET] Case I: retrieve all legal representatives of the entities&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: retrieve all legal representatives of the entities&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Entities] Api&quot;,
+            &quot; Endpoint: &#x2F;entities&#x2F;payerAndSeller&quot;
+          ],
+          &quot;duration&quot;: 38,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Entities] Api  Endpoint: &#x2F;entities&#x2F;payerAndSeller [POST] Case I: Post payer and seller entities&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I: Post payer and seller entities&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Entities] Api&quot;,
+            &quot; Endpoint: &#x2F;entities&quot;
+          ],
+          &quot;duration&quot;: 7,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Entities] Api  Endpoint: &#x2F;entities [GET] Case I: Get Entities&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get Entities&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Entities] Api&quot;,
+            &quot; Endpoint: &#x2F;entities&quot;
+          ],
+          &quot;duration&quot;: 10,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Entities] Api  Endpoint: &#x2F;entities [GET] Case II: Get entities without user&#39;s data headers&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case II: Get entities without user&#39;s data headers&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Entities] Api&quot;,
+            &quot; Endpoint: &#x2F;entities&quot;
+          ],
+          &quot;duration&quot;: 28,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Entities] Api  Endpoint: &#x2F;entities [POST] Case III: Create Entity&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case III: Create Entity&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Entities] Api&quot;,
+            &quot; Endpoint: &#x2F;entities&quot;
+          ],
+          &quot;duration&quot;: 16,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Entities] Api  Endpoint: &#x2F;entities [PUT] Case IV: Update&#x2F;Edit Entity&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[PUT] Case IV: Update&#x2F;Edit Entity&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Authorizations] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;authorization&#x2F;entity&#x2F;:entity_id&quot;
+          ],
+          &quot;duration&quot;: 20,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Authorizations] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;authorization&#x2F;entity&#x2F;:entity_id [GET] Case I : Get entity authorizations&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I : Get entity authorizations&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Authorizations] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;authorization&#x2F;entity&#x2F;bulk&#x2F;:entity_id&quot;
+          ],
+          &quot;duration&quot;: 23,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Authorizations] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;authorization&#x2F;entity&#x2F;bulk&#x2F;:entity_id [POST] Case I : Authorization bulk create&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I : Authorization bulk create&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiBankAccount] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v1&#x2F;bank_account&#x2F;entity&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 13,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiBankAccount] Api  Endpoint: &#x2F;api&#x2F;v1&#x2F;bank_account&#x2F;entity&#x2F;:id [GET] Case I : Get apiBankAccount&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I : Get apiBankAccount&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiBankAccount] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v1&#x2F;bank_account&#x2F;entity&#x2F;:id&#x2F;exist&#x2F;&quot;
+          ],
+          &quot;duration&quot;: 15,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiBankAccount] Api  Endpoint: &#x2F;api&#x2F;v1&#x2F;bank_account&#x2F;entity&#x2F;:id&#x2F;exist&#x2F; [GET] Case I : get bank account by entity ID&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I : get bank account by entity ID&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiBilling] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;billing&quot;
+          ],
+          &quot;duration&quot;: 22,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiBilling] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;billing [POST] Case I : add information to the invoice&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I : add information to the invoice&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiBilling] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;billing&#x2F;entity&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 8,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiBilling] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;billing&#x2F;entity&#x2F;:id [GET] Case I : Entity endpoint get billing info by entity&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I : Entity endpoint get billing info by entity&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiBilling] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;billing&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 22,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiBilling] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;billing&#x2F;:id [GET] Case I : Get billing info by Id&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I : Get billing info by Id&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiBilling] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;billing&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 23,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiBilling] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;billing&#x2F;:id [DELETE] Case II : Delete invoice information&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[DELETE] Case II : Delete invoice information&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiBilling] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;billing&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 26,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiBilling] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;billing&#x2F;:id [PUT] Case I : Edit your invoice information &quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[PUT] Case I : Edit your invoice information &quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiCommercial] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;commercial&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 18,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiCommercial] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;commercial&#x2F;:id [GET] Case I : Get commercial&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I : Get commercial&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiCommercial] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;commercial&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 5,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiCommercial] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;commercial&#x2F;:id [DELETE] Case II : Delete commercial&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[DELETE] Case II : Delete commercial&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiCommercial] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;commercial&#x2F;list&quot;
+          ],
+          &quot;duration&quot;: 13,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiCommercial] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;commercial&#x2F;list [GET] Case I : List of commercial&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I : List of commercial&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiCommercial] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;commercial&quot;
+          ],
+          &quot;duration&quot;: 10,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiCommercial] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;commercial [POST] Case I : New commercial&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I : New commercial&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiEntities] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;entities&#x2F;client&quot;
+          ],
+          &quot;duration&quot;: 5,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiEntities] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;entities&#x2F;client [GET] Case I: Get customer information&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get customer information&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiEntities] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;entities&#x2F;client&quot;
+          ],
+          &quot;duration&quot;: 38,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiEntities] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;entities&#x2F;client [POST] Case II: creation of the new clients&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case II: creation of the new clients&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiEntities] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;entities&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 18,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiEntities] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;entities&#x2F;:id [GET] Case I: Get id entities&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get id entities&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiEntities] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;entities&#x2F;nit&#x2F;:nit&quot;
+          ],
+          &quot;duration&quot;: 7,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiEntities] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;entities&#x2F;nit&#x2F;:nit [GET] Case I: Get entities with identifier type NIT&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get entities with identifier type NIT&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiEntities] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;entities&#x2F;bank&quot;
+          ],
+          &quot;duration&quot;: 12,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiEntities] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;entities&#x2F;bank [GET] Case I: get bank account information&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: get bank account information&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiGetmani] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v1&#x2F;getmati&quot;
+          ],
+          &quot;duration&quot;: 8,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiGetmani] Api  Endpoint: &#x2F;api&#x2F;v1&#x2F;getmati [GET] Case I: Get information&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get information&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [apiGetmani] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v1&#x2F;getmati&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 8,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [apiGetmani] Api  Endpoint: &#x2F;api&#x2F;v1&#x2F;getmati&#x2F;:id [PUT] Case II: Update information of user&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[PUT] Case II: Update information of user&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiGuarantors] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors&quot;
+          ],
+          &quot;duration&quot;: 15,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiGuarantors] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors [POST] Case I: Create guarantor by legal person&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I: Create guarantor by legal person&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiGuarantors] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors&#x2F;entity&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 3,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiGuarantors] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors&#x2F;entity&#x2F;:id [DELETE] Case I: Delete the entitie&#39;s guarantor&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[DELETE] Case I: Delete the entitie&#39;s guarantor&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiGuarantors] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors&#x2F;entity&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 7,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiGuarantors] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors&#x2F;entity&#x2F;:id [GET] Case II: GET the entitie&#39;s guarantor for id&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case II: GET the entitie&#39;s guarantor for id&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiGuarantors] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors&#x2F;entityDocument&#x2F;:entityId&#x2F;:document&#x2F;:type&quot;
+          ],
+          &quot;duration&quot;: 8,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiGuarantors] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors&#x2F;entityDocument&#x2F;:entityId&#x2F;:document&#x2F;:type [GET] Case I: Get the selected document&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get the selected document&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiGuarantors] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 9,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiGuarantors] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors&#x2F;:id [PUT] Case I: Put the guarantor&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[PUT] Case I: Put the guarantor&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiGuarantors] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 8,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiGuarantors] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors&#x2F;:id [DELETE] Case II: Delete the guarantor&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[DELETE] Case II: Delete the guarantor&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiGuarantors] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 16,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiGuarantors] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors&#x2F;:id [GET] Case III: Get the guarantor&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case III: Get the guarantor&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiGuarantors] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors&#x2F;entityDocument&#x2F;:entityId&#x2F;:document&#x2F;:type&quot;
+          ],
+          &quot;duration&quot;: 11,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiGuarantors] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;guarantors&#x2F;entityDocument&#x2F;:entityId&#x2F;:document&#x2F;:type [GET] Case I: Get Guarantors&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get Guarantors&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [LegalRepresentative] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v1&#x2F;legal_representative&quot;
+          ],
+          &quot;duration&quot;: 17,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [LegalRepresentative] Api  Endpoint: &#x2F;api&#x2F;v1&#x2F;legal_representative [POST] Case I: Create legal representative&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I: Create legal representative&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [LegalRepresentative] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v1&#x2F;legal_representative&quot;
+          ],
+          &quot;duration&quot;: 22,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [LegalRepresentative] Api  Endpoint: &#x2F;api&#x2F;v1&#x2F;legal_representative [GET] Case II: Get legal representative&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case II: Get legal representative&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [LegalRepresentative] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v1&#x2F;legal_representative&#x2F;entity&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 4,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [LegalRepresentative] Api  Endpoint: &#x2F;api&#x2F;v1&#x2F;legal_representative&#x2F;entity&#x2F;:id [GET] Case I: Get entities of legal representative&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get entities of legal representative&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [LegalRepresentative] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v1&#x2F;legal_representative&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 27,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [LegalRepresentative] Api  Endpoint: &#x2F;api&#x2F;v1&#x2F;legal_representative&#x2F;:id [DELETE] Case I: Delete legal representative&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[DELETE] Case I: Delete legal representative&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [LegalRepresentative] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v1&#x2F;legal_representative&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 16,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [LegalRepresentative] Api  Endpoint: &#x2F;api&#x2F;v1&#x2F;legal_representative&#x2F;:id [PUT] Case II: Update&#x2F;edit legal representative by id&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[PUT] Case II: Update&#x2F;edit legal representative by id&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiPlatform] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;platform&#x2F;menu&#x2F;:entity_id&quot;
+          ],
+          &quot;duration&quot;: 17,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiPlatform] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;platform&#x2F;menu&#x2F;:entity_id [GET] Case I: Get plataform by entities&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get plataform by entities&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiProfiles] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;profiles&quot;
+          ],
+          &quot;duration&quot;: 375,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiProfiles] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;profiles [GET] Case I: Get the all entities&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get the all entities&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiProfiles] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;profiles&#x2F;entity&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 20,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiProfiles] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;profiles&#x2F;entity&#x2F;:id [GET] Case I: Get profiles by entities&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get profiles by entities&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiProfiles] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;profiles&#x2F;custom-search-profiles-entities-ids?&quot;
+          ],
+          &quot;duration&quot;: 511,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiProfiles] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;profiles&#x2F;custom-search-profiles-entities-ids? [GET] Case I: Get the profiles by custom search&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get the profiles by custom search&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiProfiles] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;profiles&#x2F;funnel_status&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 16,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiProfiles] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;profiles&#x2F;funnel_status&#x2F;:id [GET] Case I: Get the status profile &quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get the status profile &quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiProfiles] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;profiles&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 12,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiProfiles] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;profiles&#x2F;:id [GET] Case I: Get the profile&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get the profile&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiRelations] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;relations&#x2F;payer&#x2F;:payerID&#x2F;seller&#x2F;:sellerID&quot;
+          ],
+          &quot;duration&quot;: 10,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiRelations] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;relations&#x2F;payer&#x2F;:payerID&#x2F;seller&#x2F;:sellerID [GET] Case I: Get relationship of payer and seller&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get relationship of payer and seller&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiRelations] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;relations&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 29,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiRelations] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;relations&#x2F;:id [PUT] Case I: Get relations by id&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[PUT] Case I: Get relations by id&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiRelations] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;relations&#x2F;payer&#x2F;:payerID&#x2F;seller&#x2F;:sellerID&quot;
+          ],
+          &quot;duration&quot;: 8,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiRelations] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;relations&#x2F;payer&#x2F;:payerID&#x2F;seller&#x2F;:sellerID [GET] Case I: Get relations payer&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get relations payer&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiRelations] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v2&#x2F;relations&#x2F;payersBySeller&#x2F;:sellerID&quot;
+          ],
+          &quot;duration&quot;: 6,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiRelations] Api  Endpoint: &#x2F;api&#x2F;v2&#x2F;relations&#x2F;payersBySeller&#x2F;:sellerID [GET] Case I: Get the payers&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get the payers&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiScraping] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v1&#x2F;scraping&#x2F;entity&#x2F;:entityOrProfileId&quot;
+          ],
+          &quot;duration&quot;: 30,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiScraping] Api  Endpoint: &#x2F;api&#x2F;v1&#x2F;scraping&#x2F;entity&#x2F;:entityOrProfileId [POST] Case I: Create scraping&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I: Create scraping&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiScraping] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v1&#x2F;scraping&#x2F;entity&#x2F;:entityOrProfileId&quot;
+          ],
+          &quot;duration&quot;: 17,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiScraping] Api  Endpoint: &#x2F;api&#x2F;v1&#x2F;scraping&#x2F;entity&#x2F;:entityOrProfileId [GET] Case II: Get scrapping (consulted)&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case II: Get scrapping (consulted)&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiScraping] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v1&#x2F;scraping&#x2F;entity&#x2F;:entityOrProfileId&quot;
+          ],
+          &quot;duration&quot;: 75,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiScraping] Api  Endpoint: &#x2F;api&#x2F;v1&#x2F;scraping&#x2F;entity&#x2F;:entityOrProfileId [PUT] Case III: Update scrapping&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[PUT] Case III: Update scrapping&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiUserNotifications] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v1&#x2F;user_notification&#x2F;:entity_id&quot;
+          ],
+          &quot;duration&quot;: 174,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiUserNotifications] Api  Endpoint: &#x2F;api&#x2F;v1&#x2F;user_notification&#x2F;:entity_id [PUT] Case I: PUT user notification&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[PUT] Case I: PUT user notification&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiUserNotifications] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v1&#x2F;user_notification&#x2F;:entity_id&quot;
+          ],
+          &quot;duration&quot;: 28,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiUserNotifications] Api  Endpoint: &#x2F;api&#x2F;v1&#x2F;user_notification&#x2F;:entity_id [GET] Case II: Get user notification&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case II: Get user notification&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [ApiUserNotifications] Api&quot;,
+            &quot; Endpoint: &#x2F;api&#x2F;v1&#x2F;user_notification&quot;
+          ],
+          &quot;duration&quot;: 13,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [ApiUserNotifications] Api  Endpoint: &#x2F;api&#x2F;v1&#x2F;user_notification [POST] Case I: Post user notification&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I: Post user notification&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Index] Api&quot;,
+            &quot; Endpoint: &#x2F;getAuctionHome&quot;
+          ],
+          &quot;duration&quot;: 33,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Index] Api  Endpoint: &#x2F;getAuctionHome [GET] Case I: Get Index Auction Home&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get Index Auction Home&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Index] Api&quot;,
+            &quot; Endpoint: &#x2F;healthCheck&quot;
+          ],
+          &quot;duration&quot;: 4,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Index] Api  Endpoint: &#x2F;healthCheck [GET] Case I: Get the entities and profiles&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get the entities and profiles&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Index] Api&quot;,
+            &quot; Endpoint: &#x2F;profilesAndEntities&quot;
+          ],
+          &quot;duration&quot;: 12160,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Index] Api  Endpoint: &#x2F;profilesAndEntities [GET] Case I: Get Profiles and Entities&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get Profiles and Entities&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Index] Api&quot;,
+            &quot; Endpoint: &#x2F;registerUser&quot;
+          ],
+          &quot;duration&quot;: 20,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Index] Api  Endpoint: &#x2F;registerUser [POST] Case I: Post user&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I: Post user&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Index] Api&quot;,
+            &quot; Endpoint: &#x2F;registerUserV2&quot;
+          ],
+          &quot;duration&quot;: 57,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Index] Api  Endpoint: &#x2F;registerUserV2 [POST] Case I: Post user&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I: Post user&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Index] Api&quot;,
+            &quot; Endpoint: &#x2F;updateUser&quot;
+          ],
+          &quot;duration&quot;: 35,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Index] Api  Endpoint: &#x2F;updateUser [POST] Case I: Post user&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I: Post user&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Index] Api&quot;,
+            &quot; Endpoint: &#x2F;events&#x2F;:id&#x2F;:eventId&quot;
+          ],
+          &quot;duration&quot;: 79,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Index] Api  Endpoint: &#x2F;events&#x2F;:id&#x2F;:eventId [GET] Case I: Get the user&#39;s events&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get the user&#39;s events&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Profiles] Api&quot;,
+            &quot; Endpoint: &#x2F;profiles&quot;
+          ],
+          &quot;duration&quot;: 23,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Profiles] Api  Endpoint: &#x2F;profiles [GET] Case I: Get the profiles&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get the profiles&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Profiles] Api&quot;,
+            &quot; Endpoint: &#x2F;profiles&quot;
+          ],
+          &quot;duration&quot;: 7,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Profiles] Api  Endpoint: &#x2F;profiles [GET] Case II: Get profiles&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case II: Get profiles&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Profiles] Api&quot;,
+            &quot; Endpoint: &#x2F;profiles&quot;
+          ],
+          &quot;duration&quot;: 21,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Profiles] Api  Endpoint: &#x2F;profiles [POST] Case III: Post profiles&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case III: Post profiles&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Profiles] Api&quot;,
+            &quot; Endpoint: &#x2F;profiles&quot;
+          ],
+          &quot;duration&quot;: 6,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Profiles] Api  Endpoint: &#x2F;profiles [PUT] Case IV: Put profile&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[PUT] Case IV: Put profile&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Profiles] Api&quot;,
+            &quot; Endpoint: &#x2F;profiles&#x2F;count_users_by&#x2F;:key&#x2F;:value&quot;
+          ],
+          &quot;duration&quot;: 7,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Profiles] Api  Endpoint: &#x2F;profiles&#x2F;count_users_by&#x2F;:key&#x2F;:value [GET] Case I: Get the user&#39;s count&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get the user&#39;s count&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Profiles] Api&quot;,
+            &quot; Endpoint: &#x2F;profiles&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 6,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Profiles] Api  Endpoint: &#x2F;profiles&#x2F;:id [GET] Case I: Get the profile by id&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get the profile by id&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Profiles] Api&quot;,
+            &quot; Endpoint: &#x2F;profiles&#x2F;list&#x2F;:intention&quot;
+          ],
+          &quot;duration&quot;: 8,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Profiles] Api  Endpoint: &#x2F;profiles&#x2F;list&#x2F;:intention [GET] Case I: Get the list of intentnion&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get the list of intentnion&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Profiles] Api&quot;,
+            &quot; Endpoint: &#x2F;profiles&#x2F;profilesWithEmails&quot;
+          ],
+          &quot;duration&quot;: 10,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Profiles] Api  Endpoint: &#x2F;profiles&#x2F;profilesWithEmails [POST] Case I: Post profiles with emails&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I: Post profiles with emails&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [Profiles] Api&quot;,
+            &quot; Endpoint: &#x2F;profiles&#x2F;profilesWithEntities&quot;
+          ],
+          &quot;duration&quot;: 11718,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [Profiles] Api  Endpoint: &#x2F;profiles&#x2F;profilesWithEntities [POST] Case I: Post profiles with entities&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I: Post profiles with entities&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [relations] Api&quot;,
+            &quot; Endpoint: &#x2F;relations&quot;
+          ],
+          &quot;duration&quot;: 552,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [relations] Api  Endpoint: &#x2F;relations [GET] Case I: Returns an array with all relations&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Returns an array with all relations&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [relations] Api&quot;,
+            &quot; Endpoint: &#x2F;relations&quot;
+          ],
+          &quot;duration&quot;: 29,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [relations] Api  Endpoint: &#x2F;relations [PUT] Case II: update relationship&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[PUT] Case II: update relationship&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [relations] Api&quot;,
+            &quot; Endpoint: &#x2F;relations&#x2F;naturalPayer&#x2F;:cc&#x2F;:sellerId&quot;
+          ],
+          &quot;duration&quot;: 26,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [relations] Api  Endpoint: &#x2F;relations&#x2F;naturalPayer&#x2F;:cc&#x2F;:sellerId [GET] Case I: Bring the seller&#39;s relationship with the ID&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Bring the seller&#39;s relationship with the ID&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [relations] Api&quot;,
+            &quot; Endpoint: &#x2F;relations&#x2F;delete&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 11,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [relations] Api  Endpoint: &#x2F;relations&#x2F;delete&#x2F;:id [GET] Case I: Deletes the relation with the id give&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Deletes the relation with the id give&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [relations] Api&quot;,
+            &quot; Endpoint: &#x2F;relations&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 12,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [relations] Api  Endpoint: &#x2F;relations&#x2F;:id [GET] Case I: Get id of relations&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get id of relations&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [relations] Api&quot;,
+            &quot; Endpoint: &#x2F;relations&#x2F;legalPayer&#x2F;:nit&#x2F;:vd&#x2F;:sellerId&quot;
+          ],
+          &quot;duration&quot;: 13,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [relations] Api  Endpoint: &#x2F;relations&#x2F;legalPayer&#x2F;:nit&#x2F;:vd&#x2F;:sellerId [GET] Case I: relationship between natural payer and seller&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: relationship between natural payer and seller&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [relations] Api&quot;,
+            &quot; Endpoint: &#x2F;relations&#x2F;payersBySeller&#x2F;:id&quot;
+          ],
+          &quot;duration&quot;: 14,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [relations] Api  Endpoint: &#x2F;relations&#x2F;payersBySeller&#x2F;:id [GET] Case I: Get id of relations PayerBySellers&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[GET] Case I: Get id of relations PayerBySellers&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Staged [be-entity] Microservice&quot;,
+            &quot; ON [users] Api&quot;,
+            &quot; Endpoint: &#x2F;users&#x2F;getUsersByDate&quot;
+          ],
+          &quot;duration&quot;: 426,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Staged [be-entity] Microservice  ON [users] Api  Endpoint: &#x2F;users&#x2F;getUsersByDate [POST] Case I: Get entities and profiles with identifiers&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;[POST] Case I: Get entities and profiles with identifiers&quot;
+        }
+      ],
+      &quot;failureMessage&quot;: null
+    }
+  ],
+  &quot;wasInterrupted&quot;: false
+}</div>
+        </div>
+        <div class="d-none" id="test-global-config">{
+  &quot;bail&quot;: 0,
+  &quot;changedFilesWithAncestor&quot;: false,
+  &quot;collectCoverage&quot;: false,
+  &quot;collectCoverageFrom&quot;: [],
+  &quot;coverageDirectory&quot;: &quot;&#x2F;opt&#x2F;app&#x2F;testing_components_v1&#x2F;component_test&#x2F;coverage&quot;,
+  &quot;coverageProvider&quot;: &quot;babel&quot;,
+  &quot;coverageReporters&quot;: [
+    &quot;json&quot;,
+    &quot;text&quot;,
+    &quot;lcov&quot;,
+    &quot;clover&quot;
+  ],
+  &quot;detectLeaks&quot;: false,
+  &quot;detectOpenHandles&quot;: false,
+  &quot;errorOnDeprecated&quot;: false,
+  &quot;expand&quot;: false,
+  &quot;findRelatedTests&quot;: false,
+  &quot;forceExit&quot;: false,
+  &quot;json&quot;: false,
+  &quot;lastCommit&quot;: false,
+  &quot;listTests&quot;: false,
+  &quot;logHeapUsage&quot;: false,
+  &quot;maxConcurrency&quot;: 5,
+  &quot;maxWorkers&quot;: 1,
+  &quot;noStackTrace&quot;: false,
+  &quot;nonFlagArgs&quot;: [
+    &quot;main.test.js&quot;
+  ],
+  &quot;notify&quot;: false,
+  &quot;notifyMode&quot;: &quot;failure-change&quot;,
+  &quot;onlyChanged&quot;: false,
+  &quot;onlyFailures&quot;: false,
+  &quot;passWithNoTests&quot;: false,
+  &quot;projects&quot;: [],
+  &quot;reporters&quot;: [
+    [
+      &quot;default&quot;,
+      {}
+    ],
+    [
+      &quot;&#x2F;opt&#x2F;app&#x2F;testing_components_v1&#x2F;component_test&#x2F;node_modules&#x2F;jest-stare&#x2F;lib&#x2F;index.js&quot;,
+      {
+        &quot;resultDir&quot;: &quot;results&#x2F;jest-stare&#x2F;&quot;,
+        &quot;reportTitle&quot;: &quot;jest-stare!&quot;,
+        &quot;additionalResultsProcessors&quot;: [],
+        &quot;coverageLink&quot;: &quot;..&#x2F;..&#x2F;coverage&#x2F;lcov-report&#x2F;index.html&quot;,
+        &quot;jestStareConfigJson&quot;: &quot;jest-stare.json&quot;,
+        &quot;jestGlobalConfigJson&quot;: &quot;globalStuff.json&quot;,
+        &quot;resultHtml&quot;: &quot;index.html&quot;,
+        &quot;resultJson&quot;: &quot;jest-results.json&quot;
+      }
+    ]
+  ],
+  &quot;rootDir&quot;: &quot;&#x2F;opt&#x2F;app&#x2F;testing_components_v1&#x2F;component_test&quot;,
+  &quot;runTestsByPath&quot;: false,
+  &quot;skipFilter&quot;: false,
+  &quot;testFailureExitCode&quot;: 1,
+  &quot;testPathPattern&quot;: &quot;main.test.js&quot;,
+  &quot;testSequencer&quot;: &quot;&#x2F;opt&#x2F;app&#x2F;testing_components_v1&#x2F;component_test&#x2F;node_modules&#x2F;@jest&#x2F;test-sequencer&#x2F;build&#x2F;index.js&quot;,
+  &quot;updateSnapshot&quot;: &quot;new&quot;,
+  &quot;useStderr&quot;: false,
+  &quot;verbose&quot;: true,
+  &quot;watch&quot;: false,
+  &quot;watchAll&quot;: false,
+  &quot;watchman&quot;: true
+}</div>
+
+    </main>
+    <hr>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">jest-stare 2020</span>
+        </div>
+    </footer>
+</body>
+
+</html>
+

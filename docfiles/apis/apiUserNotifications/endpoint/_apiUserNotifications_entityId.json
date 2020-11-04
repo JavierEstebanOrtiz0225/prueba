@@ -1,0 +1,57 @@
+{
+    "info": {
+        "url": "/api/v1/user_notification/:entity_id",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: PUT user notification",
+                "description": "Edit user notification",
+                "method": "PUT",
+                "testStrict": true
+            },
+            "req": {
+                "params": {
+                    "pathVariable": {
+                        "entity_id": "0c585ba0-58ba-11ea-9170-5d8191012f06"
+                    }
+                },
+                "bodyData": {
+                    "entity_id": "0c585ba0-58ba-11ea-9170-5d8191012f06",
+                    "target_id": "jkhgfs",
+                    "owner_database": "kjhghj",
+                    "modifiedAt": "654156"
+                }
+            },
+            "res": {
+                "data": {
+                    "updated": true
+                },
+                "message": "Ha editado su información",
+                "code": 200,
+                "status": 200
+            }
+        },
+        "case_2":{
+            "infoCase": {
+                "title": "Case II: Get user notification",
+                "description": "Return array with notification's users by id entity",
+                "method": "GET",
+                "testStrict": true
+            },
+            "req": {
+                "params": {
+                    "pathVariable": {
+                        "entity_id": "84b9f410-58dc-11ea-ae2c-716155970458"
+                    }
+                }
+            },
+            "res": {
+                "data": false,
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

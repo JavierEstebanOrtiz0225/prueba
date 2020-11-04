@@ -1,0 +1,5 @@
+{
+    "name": "apiEntities",
+    "file": "./routes/apiEntities.js",
+    "description": "This api deals with user's apiEntities"
+  }

@@ -1,0 +1,51 @@
+{
+    "info": {
+        "url": "/entities/:id",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Delete entities",
+                "description": "Returns an array with the entity deleted",
+                "method": "DELETE",
+                "testStrict": true
+            },
+            "req": {
+                "params": {
+                    "pathVariable": {
+                        "id": "cbdf9500-69eb-11ea-a136-474c614c3243"
+                    }
+                }
+            },
+            "res": {
+                "data": 0,
+                "message": "Success",
+                "status": 200
+            }
+        },
+        "case_2": {
+            "infoCase": {
+                "title": "Case II: Get entities by id",
+                "description": "Returns an object with entities by id",
+                "method": "GET",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {
+                    "user-data": "eyJ1c2VySWQiOjUsInByb2ZpbGVJZCI6Ijg3MDM2MmIwLTk3NTEtMTFlNi04OGZmLWU3ZGNkYWQ2MTRmYSIsImVudGl0eUlkIjoiODZmZjFjZjAtOTc1MS0xMWU2LTg4ZmYtZTdkY2RhZDYxNGZhIiwicm9sZXMiOnsiaW52ZXN0b3IiOlsicmVhZCIsInVwZGF0ZSIsImNyZWF0ZSIsIm1lc2ZpeCIsImNvdmlub2MiXSwic2VsbGVyIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiLCJtZXNmaXgiLCJjb3Zpbm9jIl0sInN1cGVyIGFkbWluIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiXX19"
+                },
+                "params": {
+                    "pathVariable": {
+                        "id": "22026920-6a51-11ea-98a8-291402e205e3"
+                    }
+                }
+            },
+            "res": {
+                "data": null,
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "name": "ApiPlatform",
+    "file": "./routes/apiPlatform.json",
+    "description": "This api (add description to Guarantors)."
+}

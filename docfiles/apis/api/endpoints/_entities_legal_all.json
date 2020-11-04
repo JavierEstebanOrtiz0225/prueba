@@ -1,0 +1,28 @@
+{
+    "info":{
+        "url" : "/entities/legal/all",
+        "version" : 1
+    },
+
+    "useCases":{
+    
+        "case_1" : {
+            "infoCase": {
+                "title": "Case I: retrieve all legal representatives of the entities",
+                "description": "Returns an object with entities and entities resume",
+                "method": "GET",
+                "testStrict": false
+            },
+            "req": {
+                "headers": {
+                    "user-data":"eyJ1c2VySWQiOjUsInByb2ZpbGVJZCI6Ijg3MDM2MmIwLTk3NTEtMTFlNi04OGZmLWU3ZGNkYWQ2MTRmYSIsImVudGl0eUlkIjoiODZmZjFjZjAtOTc1MS0xMWU2LTg4ZmYtZTdkY2RhZDYxNGZhIiwicm9sZXMiOnsiaW52ZXN0b3IiOlsicmVhZCIsInVwZGF0ZSIsImNyZWF0ZSIsIm1lc2ZpeCIsImNvdmlub2MiXSwic2VsbGVyIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiLCJtZXNmaXgiLCJjb3Zpbm9jIl0sInN1cGVyIGFkbWluIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiXX19"
+                }
+            },
+            "res": {
+                "entities": [],
+                "entitiesResume": [],
+                "status": 200
+            }
+        }
+    }
+}

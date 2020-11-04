@@ -1,0 +1,53 @@
+{
+    "info": {
+        "url": "/api/v2/billing/:id",
+        "version": 2
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I : Edit your invoice information ",
+                "description": "Return: update or modify billing information ",
+                "method": "PUT",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {
+                    "Content-type": "application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {
+                        "id": ""
+                    }
+                },
+                "bodyData": {
+                    "occupation": "Gerente",
+                    "secondLastName": "Perez"
+                },
+                "subRequests": [
+                    {
+                        "toReplace": [
+                            {
+                                "keyToReplace": "params.pathVariable.id",
+                                "valueToUse": "data._id"
+                            }
+                        ],
+                        "endpointFile": "/opt/app/testing_components_v1/component_test/docfiles/apis/apiBilling/endpoints/_apiBilling.json",
+                        "case": "case_1",
+                        "port": "ENTITY_PORT",
+                        "host": "ENTITY_HOST"
+                    }
+                ]
+            },
+            "res": {
+                "data": {
+                    "updated": true
+                },
+                "message": "Ha editado su información de facturación",
+                "code": 200,
+                "status": 200
+            }
+        }
+    }
+}

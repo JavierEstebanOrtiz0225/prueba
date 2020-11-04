@@ -1,0 +1,92 @@
+{
+    "info": {
+        "url": "/api/v2/profiles/:id",
+        "version": 2
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Get the profile",
+                "description": "Returns the profile by id",
+                "method": "GET",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {},
+                "params": {
+                    "query": {},
+                    "pathVariable": {
+                        "id": "5e8bc680-5e98-11ea-ab94-194b40ef5ced"
+                    }
+                }
+            },
+            "res": {
+                "data": {
+                    "_id": "5e8bc680-5e98-11ea-ab94-194b40ef5ced",
+                    "typeAccount": "10",
+                    "name": "85950d71",
+                    "secondName": "d41d8cd9",
+                    "lastName": "f93db25b",
+                    "secondLastName": "d41d8cd9",
+                    "birthDate": 217382400000,
+                    "documentType": "C.C.",
+                    "source": "Otro",
+                    "profession": "Odontología",
+                    "occupation": "Gerente administrativo",
+                    "genderType": "Masculino",
+                    "socioeconomicType": "5",
+                    "document": "e8b7b840",
+                    "documentCity": "VALLEDUPAR",
+                    "documentRegion": "CESAR",
+                    "phone": "29c2568d",
+                    "address": "c74a7244",
+                    "addressRegion": "CESAR",
+                    "addressCity": "VALLEDUPAR",
+                    "email": "5d15b53f10f2bd4f98428332a12c7412@mail.com",
+                    "entityId": "5e864840-5e98-11ea-ab94-194b40ef5ced",
+                    "maxValueTransaction": null,
+                    "complete": true,
+                    "contractsAccepted": false,
+                    "documentsValidated": false,
+                    "createdAt": 1583381910248,
+                    "modifiedAt": 1583382428046,
+                    "hubspotId": "44861151",
+                    "banned": false,
+                    "referred_email": null,
+                    "entity": {
+                        "_id": "5e864840-5e98-11ea-ab94-194b40ef5ced",
+                        "legalRepresentativeId": "5e8bc680-5e98-11ea-ab94-194b40ef5ced",
+                        "typeUser": 2,
+                        "entityName": "117f70d1",
+                        "entityPhone": null,
+                        "anual_sale": null,
+                        "entityAddress": null,
+                        "entityCity": null,
+                        "entityDocumentType": "C.C.",
+                        "entityRegion": null,
+                        "entityDocument": "e8b7b840",
+                        "verificationDigit": null,
+                        "chambersCommerce": null,
+                        "legalConcept": null,
+                        "businessSector": null,
+                        "femaleEmployees": null,
+                        "maleEmployees": null,
+                        "complete": true,
+                        "contractsAccepted": false,
+                        "documentsValidated": false,
+                        "createdAt": 1583381910211,
+                        "modifiedAt": 1583382428128,
+                        "bank": null,
+                        "bankType": null,
+                        "bankAccountNumber": null,
+                        "resourcesAvailableInvest": null,
+                        "hubspotId": null,
+                        "statusCrm": "mql"
+                    }
+                },
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "info": {
+        "url": "/api/v1/bank_account/entity/:id",
+        "version": 1
+    },
+    "useCases": {
+
+        "case_1": {
+            "infoCase": {
+                "title": "Case I : Get apiBankAccount",
+                "description": "Return: Bring apiBankAccount",
+                "method": "GET",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {
+                    "Content-type": "application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {"id":"86ff1cf0-9751-11e6-88ff-e7dcdad614fa"}
+                }
+            },
+            "res": {
+                "data": {
+                    "_id": "020a45c0-3c62-11e9-b8ff-e9be0a5cccd1",
+                    "entity_id": "86ff1cf0-9751-11e6-88ff-e7dcdad614fa",
+                    "name": "BANCO AV VILLAS",
+                    "type_account": "CUENTA CORRIENTE",
+                    "account_number": "069658f0cc4169bfa47f3172accff7fa",
+                    "primary": "0",
+                    "active": "0",
+                    "created_at": 1551472725019,
+                    "modified_at": 1551472725019
+                },
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

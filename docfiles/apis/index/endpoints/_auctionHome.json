@@ -1,0 +1,22 @@
+{
+    "info": {
+        "url": "/getAuctionHome",
+        "version": 1
+    },
+    "useCases": {
+        "case_1":{
+          "infoCase": {
+            "title": "Case I: Get Index Auction Home",
+            "description": "retrive amount of seller and investor",
+            "method": "GET",
+            "testStrict": true
+          },
+          "req": {},
+          "res": {
+            "seller": "auto-generated-numb",
+            "investor": "auto-generated-string",
+            "status": 200
+          }
+        }
+      }
+}

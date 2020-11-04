@@ -1,0 +1,30 @@
+{
+    "info": {
+        "url": "/api/v2/guarantors/entityDocument/:entityId/:document/:type",
+        "version": 2
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Get Guarantors",
+                "description": "Returns an array with all guarantors by entityDocument, entitiId and type",
+                "method": "GET",
+                "testStrict": true
+            },
+            "req": {
+                "params": {
+                    "pathVariable": {
+                        "entityId": "cb994090-a5b9-11e6-9e77-0d2fa5aec730",
+                        "document": "23232",
+                        "type": "nit"
+                    }
+                }
+            },
+            "res": {
+                "data": [],
+                "message": "Success",
+                "status": 200
+            }   
+        }
+    }
+}

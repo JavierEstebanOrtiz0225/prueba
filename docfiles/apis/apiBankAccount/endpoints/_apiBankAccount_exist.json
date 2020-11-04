@@ -1,0 +1,31 @@
+{
+    "info": {
+        "url": "/api/v1/bank_account/entity/:id/exist/",
+        "version": 1
+    },
+    "useCases": {
+
+        "case_2": {
+            "infoCase": {
+                "title": "Case I : get bank account by entity ID",
+                "description": "Get exist response bank account by entity id",
+                "method": "GET",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {
+                    "Content-type": "application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {"id":"86ff1cf0-9751-11e6-88ff-e7dcdad614fa"}
+                }
+            },
+            "res": {
+                "data": true,
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

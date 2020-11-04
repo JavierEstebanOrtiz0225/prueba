@@ -1,0 +1,58 @@
+{
+    "info": {
+        "url": "/profiles/profilesWithEmails",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Post profiles with emails",
+                "description": "Create a new profile based in the info  given by emails",
+                "method": "POST",
+                "testStrict": false
+            },
+            "req": {
+                "headers": {
+                    "user-data": "eyJ1c2VySWQiOjUsInByb2ZpbGVJZCI6Ijg3MDM2MmIwLTk3NTEtMTFlNi04OGZmLWU3ZGNkYWQ2MTRmYSIsImVudGl0eUlkIjoiODZmZjFjZjAtOTc1MS0xMWU2LTg4ZmYtZTdkY2RhZDYxNGZhIiwicm9sZXMiOnsiaW52ZXN0b3IiOlsicmVhZCIsInVwZGF0ZSIsImNyZWF0ZSIsIm1lc2ZpeCIsImNvdmlub2MiXSwic2VsbGVyIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiLCJtZXNmaXgiLCJjb3Zpbm9jIl0sInN1cGVyIGFkbWluIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiXX19"
+                },
+                "bodyData": {
+                    "typeAccount": "01",
+                    "name": "13ddee94",
+                    "secondName": null,
+                    "lastName": "7062c37b",
+                    "secondLastName": "af3a642f",
+                    "birthDate": 748414800000,
+                    "documentType": "C.C.",
+                    "source": null,
+                    "profession": null,
+                    "occupation": null,
+                    "genderType": null,
+                    "socioeconomicType": null,
+                    "document": "72c285df",
+                    "documentCity": "CALI",
+                    "documentRegion": "VALLE DEL CAUCA",
+                    "phone": "b88a26fd",
+                    "address": "fb99aaa1",
+                    "addressRegion": "VALLE DEL CAUCA",
+                    "addressCity": "CALI",
+                    "email": "uniqueVariableData",
+                    "entityId": "cb994090-a5b9-11e6-9e77-0d2fa5aec730",
+                    "maxValueTransaction": null,
+                    "complete": true,
+                    "contractsAccepted": false,
+                    "documentsValidated": false,
+                    "createdAt": 1543993465553,
+                    "modifiedAt": 1543993693868,
+                    "hubspotId": "16052001",
+                    "banned": false,
+                    "referred_email": null
+                }
+            },
+            "res": {
+                "data": [],
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

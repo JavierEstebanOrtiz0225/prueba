@@ -1,0 +1,30 @@
+{
+    "info": {
+      "url": "/api/v2/guarantors/entityDocument/:entityId/:document/:type",
+      "version": 1
+    },
+    "useCases": {
+      "case_1":{
+        "infoCase": {
+          "title": "Case I: Get the selected document",
+          "description": "Returns the document by etityId, document and type",
+          "method": "GET",
+          "testStrict": true
+        },
+        "req": {
+          "params": {
+            "pathVariable": {
+                "entityId": "005c3620-9a16-11e6-88ff-e7dcdad614fa",
+                "document": "23232",
+                "type": "nit"
+            }
+          }
+        },
+        "res": {
+            "data": [],
+            "message": "Success",
+            "status": 200
+        }
+      }
+    }
+  }

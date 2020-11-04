@@ -1,0 +1,91 @@
+{
+    "info": {
+        "url": "/entities/payerAndSeller",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Post payer and seller entities",
+                "description": "Returns a new entity payer and seller based on the given info",
+                "method": "POST",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "bodyData": {
+                    "payerId": "08763210-02da-11e8-8598-3d35bde3229b",
+                    "sellerId": "56de9a50-c982-11e7-9fb0-df35d4307ced"
+                }
+            },
+            "res": {
+                "data": {
+                    "payer": {
+                        "_id": "08763210-02da-11e8-8598-3d35bde3229b",
+                        "legalRepresentativeId": null,
+                        "typeUser": 1,
+                        "entityName": "KRUGER PARK ENTERPRISES SAS",
+                        "entityPhone": null,
+                        "anual_sale": null,
+                        "entityAddress": null,
+                        "entityCity": null,
+                        "entityDocumentType": "NIT",
+                        "entityRegion": null,
+                        "entityDocument": "900382545",
+                        "verificationDigit": "5",
+                        "chambersCommerce": null,
+                        "legalConcept": null,
+                        "businessSector": null,
+                        "femaleEmployees": null,
+                        "maleEmployees": null,
+                        "complete": false,
+                        "contractsAccepted": false,
+                        "documentsValidated": true,
+                        "createdAt": 1516999610288,
+                        "modifiedAt": null,
+                        "bank": null,
+                        "bankType": null,
+                        "bankAccountNumber": null,
+                        "resourcesAvailableInvest": null,
+                        "hubspotId": null,
+                        "statusCrm": "lead"
+                    },
+                    "seller": {
+                        "_id": "56de9a50-c982-11e7-9fb0-df35d4307ced",
+                        "legalRepresentativeId": "56e1cea0-c982-11e7-9fb0-df35d4307ced",
+                        "typeUser": 1,
+                        "entityName": "63f51783",
+                        "entityPhone": "78ea02fc",
+                        "anual_sale": null,
+                        "entityAddress": "8e22e880",
+                        "entityCity": "BARRANQUILLA",
+                        "entityDocumentType": "NIT",
+                        "entityRegion": "ATLÁNTICO",
+                        "entityDocument": "b17f2fc5",
+                        "verificationDigit": "1",
+                        "chambersCommerce": "BARRANQUILLA - Atlántico",
+                        "legalConcept": "S.A.S.",
+                        "businessSector": "Otros servicios",
+                        "femaleEmployees": null,
+                        "maleEmployees": null,
+                        "complete": true,
+                        "contractsAccepted": false,
+                        "documentsValidated": true,
+                        "createdAt": 1510694729844,
+                        "modifiedAt": 1510695453241,
+                        "bank": "BANCOLOMBIA",
+                        "bankType": "Cuenta corriente",
+                        "bankAccountNumber": "b8aeb53c",
+                        "resourcesAvailableInvest": null,
+                        "hubspotId": "604021268",
+                        "statusCrm": "lead"
+                    }
+                },
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

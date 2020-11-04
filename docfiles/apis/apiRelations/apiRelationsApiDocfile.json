@@ -1,0 +1,5 @@
+{
+    "name": "ApiRelations",
+    "file": "./routes/apiRelations.json",
+    "description": "This api (add description to Relations)."
+}

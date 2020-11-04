@@ -1,0 +1,84 @@
+{
+    "info": {
+        "url": "/api/v2/entities/client",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Get customer information",
+                "description": "Returns information of the clients",
+                "method": "GET",
+                "testStrict": false
+            },
+            "req": {
+                "headers": {
+                    "user-data": "eyJ1c2VySWQiOjUsInByb2ZpbGVJZCI6Ijg3MDM2MmIwLTk3NTEtMTFlNi04OGZmLWU3ZGNkYWQ2MTRmYSIsImVudGl0eUlkIjoiODZmZjFjZjAtOTc1MS0xMWU2LTg4ZmYtZTdkY2RhZDYxNGZhIiwicm9sZXMiOnsiaW52ZXN0b3IiOlsicmVhZCIsInVwZGF0ZSIsImNyZWF0ZSIsIm1lc2ZpeCIsImNvdmlub2MiXSwic2VsbGVyIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiLCJtZXNmaXgiLCJjb3Zpbm9jIl0sInN1cGVyIGFkbWluIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiXX19"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {}
+                }
+            },
+            "res": {
+                "data": [],
+                "page": 1,
+                "status": 200
+            }
+        },
+        "case_2": {
+            "infoCase": {
+                "title": "Case II: creation of the new clients",
+                "description": "Returns new clients",
+                "method": "POST",
+                "testStrict": false
+            },
+            "req": {
+                "headers": {
+                    "user-data": "eyJ1c2VySWQiOjUsInByb2ZpbGVJZCI6Ijg3MDM2MmIwLTk3NTEtMTFlNi04OGZmLWU3ZGNkYWQ2MTRmYSIsImVudGl0eUlkIjoiODZmZjFjZjAtOTc1MS0xMWU2LTg4ZmYtZTdkY2RhZDYxNGZhIiwicm9sZXMiOnsiaW52ZXN0b3IiOlsicmVhZCIsInVwZGF0ZSIsImNyZWF0ZSIsIm1lc2ZpeCIsImNvdmlub2MiXSwic2VsbGVyIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiLCJtZXNmaXgiLCJjb3Zpbm9jIl0sInN1cGVyIGFkbWluIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiXX19"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {}
+                },
+                "bodyData":{
+                    "payerId": "27100110-0546-11e8-8598-3d35bde3229b",
+                    "sellerId":"7eaa07b0-208d-11e8-ac7b-337338b82b07",
+                    "acceptorContactName":"7b44ecfe",
+                    "acceptorContactEmail": "3c169f8219eb3fd5023ac02df1d0b543@mail.com"
+                  }
+            },
+            "res": {
+                "data": {
+                    "_id": "fe6bb7d0-64b2-11ea-b3ce-59c11e9d82c6",
+                    "verified": false,
+                    "type": "T1",
+                    "inviteFirst": false,
+                    "feeMesfix": 0.1,
+                    "refundOverFee": 0.1,
+                    "baseYieldAuction": 0.1,
+                    "topYieldAuction": 0.1,
+                    "arrearsYield": 0.1,
+                    "uriRelationship": "",
+                    "createdBy": "",
+                    "modifiedBy": "",
+                    "confValueAddedTax": 0.16,
+                    "confDaysOutlayDate": 3,
+                    "conf4X1000": 0.004,
+                    "confDaysRate": 360,
+                    "confThGregShetsPerInvoices": 2,
+                    "confThGregAditionalDays": 60,
+                    "confPercentageOverThomasGreg": 0.3,
+                    "confFeePtg": 10000,
+                    "payerId": "fe61ccc0-64b2-11ea-b3ce-59c11e9d82c6",
+                    "sellerId": "7eaa07b0-208d-11e8-ac7b-337338b82b07",
+                    "acceptorContactName": "7b44ecfe",
+                    "acceptorContactEmail": "3c169f8219eb3fd5023ac02df1d0b543@mail.com",
+                    "createdAt": 1584053052361
+                },
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

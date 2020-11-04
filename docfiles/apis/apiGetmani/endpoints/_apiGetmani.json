@@ -1,0 +1,41 @@
+{
+    "info": {
+        "url": "/api/v1/getmati",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Get information",
+                "description": "Obtain informacion of the users",
+                "method": "GET",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {}                    
+                }
+            },
+            "res": {
+                "data": {
+                    "_id": "1559195539528",
+                    "profileId": "63573410-8298-11e9-bfd1-7f081a8fb845",
+                    "urlResource": "https://api.getmati.com/api/v1/verifications/5cef6fa7243266001b981fc5",
+                    "webHookError": "",
+                    "manualReview": true,
+                    "autoReview": true,
+                    "reviewerProfileId": null,
+                    "status": "verified",
+                    "createdAt": 1559196213811,
+                    "modifiedAt": "auto-generated-numb"
+                },               
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

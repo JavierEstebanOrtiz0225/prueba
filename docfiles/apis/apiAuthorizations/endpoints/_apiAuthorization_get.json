@@ -1,0 +1,70 @@
+{
+    "info": {
+        "url": "/api/v2/authorization/entity/:entity_id",
+        "version": 2
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I : Get entity authorizations",
+                "description": "Obtain authorizations by entity identifier",
+                "method": "GET",
+                "testStrict": false
+            },
+            "req": {
+                "headers": {
+                    "Content-type": "application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {
+                        "entity_id": "180f83d0-2a24-11e9-a822-7db9c60413af"
+                    }
+                }
+
+            },
+            "res": {
+                "data": [
+                    {
+                        "_id": "00a18fb0-2a27-11e9-a822-7db9c60413af",
+                        "entityId": "180f83d0-2a24-11e9-a822-7db9c60413af",
+                        "authorizationId": "2484fdb0-f249-11e8-a9ee-d91366bfa8ca",
+                        "authorized": false,
+                        "ip": null,
+                        "createdAt": null,
+                        "modifiedAt": null,
+                        "authorization": {
+                            "_id": "2484fdb0-f249-11e8-a9ee-d91366bfa8ca",
+                            "name": "ICA",
+                            "rate": 0.00966,
+                            "type": "withholdingSource",
+                            "active": true,
+                            "createdAt": null,
+                            "modifiedAt": null
+                        }
+                    },
+                    {
+                        "_id": "00a22bf0-2a27-11e9-a822-7db9c60413af",
+                        "entityId": "180f83d0-2a24-11e9-a822-7db9c60413af",
+                        "authorizationId": "24888020-f249-11e8-a9ee-d91366bfa8ca",
+                        "authorized": false,
+                        "ip": null,
+                        "createdAt": null,
+                        "modifiedAt": null,
+                        "authorization": {
+                            "_id": "24888020-f249-11e8-a9ee-d91366bfa8ca",
+                            "name": "Comisiones",
+                            "rate": 0.11,
+                            "type": "withholdingSource",
+                            "active": true,
+                            "createdAt": null,
+                            "modifiedAt": null
+                        }
+                    }
+                ],
+                "code": 200,
+                "status": 200
+            }
+        }
+    }
+}

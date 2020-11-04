@@ -1,0 +1,28 @@
+{
+    "info": {
+        "url": "/profiles/count_users_by/:key/:value",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Get the user's count",
+                "description": "Return the user's count by key and value",
+                "method": "GET",
+                "testStrict": false
+            },
+            "req": {
+                "params": {
+                    "pathVariable": {
+                        "key": "email",
+                        "value": "ea.villota@mesfix.com"
+                    }
+                }
+            },
+            "res": {
+                "count": 1,
+                "status": 200
+            }
+        }
+    }
+}

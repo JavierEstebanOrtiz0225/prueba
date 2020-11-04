@@ -1,0 +1,60 @@
+{
+    "info": {
+        "url": "/relations/naturalPayer/:cc/:sellerId",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Bring the seller's relationship with the ID",
+                "description": "Obtain the seller's relation by means of the identification number ",
+                "method": "GET",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable":{
+                        "cc": "830513134",
+                        "sellerId": "cd83a570-9755-11e6-88ff-e7dcdad614fa"
+                    }
+                }
+            },
+            "res": {
+                "_id": "a31b3645-9761-11e7-a299-000d3a1a46ce",
+                "sellerId": "cd83a570-9755-11e6-88ff-e7dcdad614fa",
+                "payerId": "8b615f92-9761-11e7-a299-000d3a1a46ce",
+                "verified": true,
+                "type": "1",
+                "inviteFirst": false,
+                "feeMesfix": null,
+                "refundOverFee": null,
+                "baseYieldAuction": null,
+                "topYieldAuction": null,
+                "arrearsYield": null,
+                "uriRelationship": null,
+                "acceptorContactName": "a2e7ae9f",
+                "acceptorContactEmail": "1158d82ac4b74a6ae7b14fc36bc694ee@mail.com",
+                "createdBy": "",
+                "modifiedBy": "",
+                "confValueAddedTax": 0.16,
+                "confDaysOutlayDate": 3,
+                "conf4X1000": 0.004,
+                "confDaysRate": 360,
+                "confThGregShetsPerInvoices": 2,
+                "confThGregShetsAditiona": null,
+                "confThGregCotsPerShetsMonthl": null,
+                "confThGregAditionalDays": 60,
+                "confThGregAverageMonthlyDay": null,
+                "confPercentageOverThomasGreg": 0.3,
+                "confFeePtg": 10000,
+                "createdAt": 1445477685000,
+                "modifiedAt": 1445477695000,
+                "status": 200       
+            }
+        }
+    }
+}

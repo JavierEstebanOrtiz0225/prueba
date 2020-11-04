@@ -1,0 +1,30 @@
+{
+    "info": {
+        "url": "/api/v2/relations/payersBySeller/:sellerID",
+        "version": 2
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Get the payers",
+                "description": "Returns Get the payers by seller id",
+                "method": "GET",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {},
+                "params": {
+                    "query": {},
+                    "pathVariable": {
+                        "sellerID": "005c3620-9a16-11e6-88ff-e7dcdad614fa"
+                    }
+                }
+            },
+            "res": {
+                "page": 1,
+                "status": 200,
+                "data": []
+            }
+        }
+    }
+}

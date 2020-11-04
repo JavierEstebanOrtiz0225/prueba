@@ -1,0 +1,22 @@
+{
+    "info": {
+      "url": "/profilesAndEntities",
+      "version": 1
+    },
+    "useCases": {
+      "case_1":{
+        "infoCase": {
+          "title": "Case I: Get Profiles and Entities",
+          "description": "Retrive entities and profiles with the ids given in the query",
+          "method": "GET",
+          "testStrict": false
+        },
+        "req": {},
+        "res": {
+          "data": [],
+          "message": "Success",
+          "status": 200
+        }
+      }
+    }
+  }

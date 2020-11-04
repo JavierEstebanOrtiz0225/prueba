@@ -1,0 +1,31 @@
+{
+    "info": {
+        "url": "/entities/getEntitiesList",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Create Entity List",
+                "description": "Returns a new entity list based on the given info",
+                "method": "POST",
+                "testStrict": false
+            },
+            "req": {
+                "headers": {
+                    "user-data": "eyJ1c2VySWQiOjUsInByb2ZpbGVJZCI6Ijg3MDM2MmIwLTk3NTEtMTFlNi04OGZmLWU3ZGNkYWQ2MTRmYSIsImVudGl0eUlkIjoiODZmZjFjZjAtOTc1MS0xMWU2LTg4ZmYtZTdkY2RhZDYxNGZhIiwicm9sZXMiOnsiaW52ZXN0b3IiOlsicmVhZCIsInVwZGF0ZSIsImNyZWF0ZSIsIm1lc2ZpeCIsImNvdmlub2MiXSwic2VsbGVyIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiLCJtZXNmaXgiLCJjb3Zpbm9jIl0sInN1cGVyIGFkbWluIjpbInJlYWQiLCJ1cGRhdGUiLCJjcmVhdGUiXX19",
+                    "Content-type": "application/json"
+                },
+                "bodyData": {
+                    "sellerEntityId": "979c0660-970e-11e6-b088-61229e85e21a",
+                    "payerId": "14dc0490-daa2-11e7-a2f0-977353576a5f"
+                }
+            },
+            "res": {
+                "data": [],
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

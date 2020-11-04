@@ -1,0 +1,60 @@
+{
+    "info": {
+        "url": "/relations",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Returns an array with all relations",
+                "description": "Get all the relations or get the relations with the given ids ",
+                "method": "GET",
+                "testStrict": false
+            },
+            "req": {
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {}
+                }
+            },
+            "res": {
+                "data": [],
+                "message": "Success",
+                "status": 200
+            }
+        },
+        "case_2": {
+            "infoCase": {
+                "title": "Case II: update relationship",
+                "description": "Updates the relation with the information given in the body",
+                "method": "PUT",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "params": {
+                    "query": {},
+                    "pathVariable": {}
+                },
+                "bodyData": {
+                    "_id":"0107a3c0-552c-11e8-b77a-bd4123be36cd",
+                    "sellerId": "17c99b30-f77a-11e9-89c4-1dcb0b69c129",
+                    "payerId": "c7aaf160-0051-11e8-8598-3d35bde3229b",
+                    "acceptorContactEmail": "d9ab0b2f547ba7bf275a351335eebbf7@mail.com"
+                }
+            },
+            "res": {
+                "data": [
+                    1
+                ],
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

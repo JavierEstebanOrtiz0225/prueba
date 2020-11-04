@@ -1,0 +1,25 @@
+{
+    "info": {
+        "url": "/api/v2/profiles",
+        "version": 2
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Get the all entities",
+                "description": "Returns Get the all entities or get the entities with the given ids",
+                "method": "GET",
+                "testStrict": false
+            },
+            "req": {
+            },
+            "res": {
+                "page": 1,
+                "data": [],
+                "count": 23921,
+                "pages": 2393,
+                "status": 200
+            }
+        }
+    }
+}

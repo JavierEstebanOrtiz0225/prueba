@@ -1,0 +1,63 @@
+{
+    "info": {
+      "url": "/api/v2/guarantors",
+      "version": 2
+    },
+    "useCases": {
+        "case_1":{
+            "infoCase": {
+            "title": "Case I: Create guarantor by legal person",
+            "description": "Returns a new guarantor based on the info and role",
+            "method": "POST",
+            "testStrict": true
+            },
+            "req": {
+                "bodyData": {
+                    "typeUser": 1,
+                    "entityName": "Empresa avalista SA",
+                    "typeDocument": "Cédula de ciudadania",
+                    "documentNumber": 1299838383,
+                    "nit": 2345555,
+                    "verificationDigit": 9,
+                    "phone": "(305)12345678",
+                    "email": "qqq@qqq.com",
+                    "address": "Carrera 12 # 213-4",
+                    "region": "Antoquia",
+                    "city": "Medellin",
+                    "firstName": "pepe",
+                    "secondName": "fernando",
+                    "firstLastName": "perez",
+                    "secondLastName": "calderon",
+                    "companyRelation": "Socio",
+                    "entityId": "de1da6f0-3ace-11e9-9e80-91b4bf883d13"
+                }
+            },
+            "res": {
+                "data": {
+                    "_id": "auto-generated-string",
+                    "typeUser": 1,
+                    "entityName": "Empresa avalista SA",
+                    "typeDocument": "Cédula de ciudadania",
+                    "documentNumber": 1299838383,
+                    "nit": 2345555,
+                    "verificationDigit": 9,
+                    "phone": "(305)12345678",
+                    "email": "qqq@qqq.com",
+                    "address": "Carrera 12 # 213-4",
+                    "region": "Antoquia",
+                    "city": "Medellin",
+                    "firstName": "pepe",
+                    "secondName": "fernando",
+                    "firstLastName": "perez",
+                    "secondLastName": "calderon",
+                    "companyRelation": "Socio",
+                    "entityId": "de1da6f0-3ace-11e9-9e80-91b4bf883d13",
+                    "createdAt": "auto-generated-number",
+                    "status": "Pendiente"
+                },
+                "message": "Los datos de tu avalista fueron agregados",
+                "status": 200
+            }
+        }
+    }
+}

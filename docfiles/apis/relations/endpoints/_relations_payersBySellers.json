@@ -1,0 +1,93 @@
+{
+    "info": {
+      "url": "/relations/payersBySeller/:id",
+      "version": 1
+    },
+    "useCases": {
+      "case_1":{
+        "infoCase": {
+          "title": "Case I: Get id of relations PayerBySellers",
+          "description": "Returns an array with of the PayerBySellers",
+          "method": "GET",
+          "testStrict": false
+        },
+        "req": {
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "params": {
+            "query": {},
+            "pathVariable": {"id":"7eaa07b0-208d-11e8-ac7b-337338b82b07"}
+          }
+        },
+        "res": {
+            "data": [
+                {
+                    "_id": "0107a3c0-552c-11e8-b77a-bd4123be36cd",
+                    "sellerId": "7eaa07b0-208d-11e8-ac7b-337338b82b07",
+                    "payerId": "27100110-0546-11e8-8598-3d35bde3229b",
+                    "verified": true,
+                    "type": "T1",
+                    "inviteFirst": false,
+                    "feeMesfix": 0.1,
+                    "refundOverFee": 0.1,
+                    "baseYieldAuction": 0.1,
+                    "topYieldAuction": 0.1,
+                    "arrearsYield": 0.1,
+                    "uriRelationship": "",
+                    "acceptorContactName": "7b44ecfe",
+                    "acceptorContactEmail": "3c169f8219eb3fd5023ac02df1d0b543@mail.com",
+                    "createdBy": "",
+                    "modifiedBy": "",
+                    "confValueAddedTax": 0.16,
+                    "confDaysOutlayDate": 3,
+                    "conf4X1000": 0.004,
+                    "confDaysRate": 360,
+                    "confThGregShetsPerInvoices": 2,
+                    "confThGregShetsAditiona": null,
+                    "confThGregCotsPerShetsMonthl": null,
+                    "confThGregAditionalDays": 60,
+                    "confThGregAverageMonthlyDay": null,
+                    "confPercentageOverThomasGreg": 0.3,
+                    "confFeePtg": 10000,
+                    "createdAt": 1526050811899,
+                    "modifiedAt": 1526050875606,
+                    "payer": {
+                        "_id": "27100110-0546-11e8-8598-3d35bde3229b",
+                        "legalRepresentativeId": "2713d1a0-0546-11e8-8598-3d35bde3229b",
+                        "typeUser": 1,
+                        "entityName": "a9777c36",
+                        "entityPhone": "3213edcb",
+                        "anual_sale": null,
+                        "entityAddress": "fad2d4a7",
+                        "entityCity": "FUNZA",
+                        "entityDocumentType": "NIT",
+                        "entityRegion": "CUNDINAMARCA",
+                        "entityDocument": "6af330c0",
+                        "verificationDigit": "9",
+                        "chambersCommerce": "FACATATIVÁ – Cundinamarca",
+                        "legalConcept": "S.A.S.",
+                        "businessSector": "Comercio",
+                        "femaleEmployees": null,
+                        "maleEmployees": null,
+                        "complete": true,
+                        "contractsAccepted": false,
+                        "documentsValidated": false,
+                        "createdAt": 1517265949600,
+                        "modifiedAt": 1517266497241,
+                        "bank": "BANCOLOMBIA",
+                        "bankType": "Cuenta de ahorros",
+                        "bankAccountNumber": "f976217e",
+                        "resourcesAvailableInvest": null,
+                        "hubspotId": null,
+                        "statusCrm": "lead"
+                    }
+                }
+            ],
+          "message": "Success",
+          "status": 200
+        }
+      }
+    }
+  }
+  

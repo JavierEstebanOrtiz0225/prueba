@@ -1,0 +1,28 @@
+{
+    "info": {
+        "url": "/entities/getRelations/:entity_id",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Get relations of entities by id",
+                "description": "Returns an object with relations of entities by id",
+                "method": "GET",
+                "testStrict": true
+            },
+            "req": {
+                "params": {
+                    "pathVariable": {
+                        "entity_id": "22026920-6a51-11ea-98a8-291402e205e3"
+                    }
+                }
+            },
+            "res": {
+                "data": null,
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}

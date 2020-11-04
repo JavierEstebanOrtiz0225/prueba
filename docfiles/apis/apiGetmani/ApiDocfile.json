@@ -1,0 +1,5 @@
+{
+    "name": "apiGetmani",
+    "file": "./routes/apiGetmani.js",
+    "description": "This api deals with user's apiGetmani"
+  }

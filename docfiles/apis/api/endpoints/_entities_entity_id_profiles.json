@@ -1,0 +1,82 @@
+{
+    "info": {
+        "url": "/entities/:entity_id/profiles",
+        "version": 1
+    },
+    "useCases": {
+        "case_1": {
+            "infoCase": {
+                "title": "Case I: Post Entities profile",
+                "description": "Returns an array with all entities",
+                "method": "POST",
+                "testStrict": true
+            },
+            "req": {
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "params": {
+                    "pathVariable": {
+                        "entity_id": "cb994090-a5b9-11e6-9e77-0d2fa5aec730"
+                    }
+                },
+                "bodyData": {
+                    "typeAccount": "01",
+                    "name": "FABIO",
+                    "secondName": null,
+                    "lastName": "GRANADOS",
+                    "secondLastName": null,
+                    "birthDate": null,
+                    "documentType": null,
+                    "document": "uniqueVariableData",
+                    "documentCity": null,
+                    "documentRegion": null,
+                    "phone": "3124086715",
+                    "address": null,
+                    "addressRegion": null,
+                    "addressCity": null,
+                    "email": "uniqueVariableData",
+                    "maxValueTransaction": null,
+                    "complete": false,
+                    "contractsAccepted": false,
+                    "documentsValidated": false,
+                    "createdAt": 1507211795130,
+                    "modifiedAt": null,
+                    "hubspotId": null,
+                    "banned": false
+                }
+            },
+            "res": {
+                "data": {
+                    "_id": "auto-generated-strings",
+                    "typeAccount": "01",
+                    "name": "FABIO",
+                    "secondName": null,
+                    "lastName": "GRANADOS",
+                    "secondLastName": null,
+                    "birthDate": null,
+                    "documentType": null,
+                    "document": "auto-generated-string",
+                    "documentCity": null,
+                    "documentRegion": null,
+                    "phone": "3124086715",
+                    "address": null,
+                    "addressRegion": null,
+                    "addressCity": null,
+                    "email": "auto-generated-string",
+                    "maxValueTransaction": null,
+                    "complete": false,
+                    "contractsAccepted": false,
+                    "documentsValidated": false,
+                    "createdAt": "auto-generated-numb",
+                    "modifiedAt": null,
+                    "hubspotId": null,
+                    "banned": false,
+                    "entityId":"auto-generated-string"
+                },
+                "message": "Success",
+                "status": 200
+            }
+        }
+    }
+}
