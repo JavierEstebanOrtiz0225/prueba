@@ -19,7 +19,7 @@ jobs:
 
                     cd component_test 
                     npm install
-                    node index.js > index.html
+                    node index.js
               env:
                 DATA: ${{ github.event.inputs.microservice }}
 
@@ -27,7 +27,7 @@ jobs:
               uses: actions/upload-artifact@v2
               with:
                 name: response
-                path: component_test/
+                path: component_test/artifact/
             - name: Download a single artifact
               uses: actions/download-artifact@v2
               with: 
