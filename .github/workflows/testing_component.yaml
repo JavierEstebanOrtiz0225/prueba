@@ -16,7 +16,9 @@ jobs:
               uses: actions/setup-node@v1
             - name: Setup images
               run: |
+
                     cd component_test 
+                    npm install
                     node index.js
               env:
                 DATA: ${{ github.event.inputs.microservice }}
