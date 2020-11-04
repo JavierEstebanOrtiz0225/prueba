@@ -19,7 +19,7 @@ jobs:
 
                     cd component_test 
                     npm install
-                    node index.js > /component_test/artefact/index.html
+                    node index.js > /artefact/index.html
               env:
                 DATA: ${{ github.event.inputs.microservice }}
 
