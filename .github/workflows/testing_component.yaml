@@ -19,10 +19,7 @@ jobs:
                     ls
                     docker image build -t component_test:1.0 .  	
                     docker run   --detach -p 3001:3001 --rm component_test:1.0 
-                    docker exec -it  mesfix-test bash -c "cd /opt/app/testing_components_v1/component_test
-            - name: init 
-              run: |
-                    component_test && node index.js
+                    docker exec -it  mesfix-test bash -c "cd /opt/app/testing_components_v1/ && node index.js"
               env:
                 DATA: ${{ github.event.inputs.microservice }}
 
