@@ -25,7 +25,7 @@ jobs:
               run: |
                     cd testing_components_v1 && cd component_test && node index.js
               env:
-                DATA: ${{ inputs.microservice }}
+                DATA: ${{ github.event.inputs.microservice }}
 
             - name: Upload artefacts
               uses: actions/upload-artifact@v2
