@@ -19,10 +19,10 @@ jobs:
 
                     cd component_test &&
                     npm install &&
-                    cd .. && cd api &&
                     node index.js > artefact/response.html
               env:
                 DATA: ${{ github.event.inputs.microservice }}
+
             - name: Upload artefacts
               uses: actions/upload-artifact@v2
               with:
