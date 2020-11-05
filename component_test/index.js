@@ -7,6 +7,6 @@ axios.get(`http://localhost:3001/test/${process.env.DATA}`)
     console.log(data.data);
 })
 .catch(err=>{
-    console.log(err.response.data);
+    console.log(err.response);
 })
 
