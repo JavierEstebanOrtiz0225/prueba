@@ -1,6 +1,7 @@
 let axios = require('axios').default;
 let fs = require('fs')
-
+let shell = require('child_process').execSync;
+shell.exec('mkdir artefact');
 axios.get(`http://localhost:3001/test/${process.env.DATA}`)
 
 .then(data=>{
