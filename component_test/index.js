@@ -1,6 +1,5 @@
 let axios = require('axios').default;
-let fs = require('fs')
-let response;
+let fs = require('fs');
 axios.get(`http://localhost:3001/test/${process.env.DATA}`)
 
 .then(data=>{
@@ -10,5 +9,4 @@ axios.get(`http://localhost:3001/test/${process.env.DATA}`)
     print(err.response.data)
 })
 
-console.log(data);
 let print = (data)=>{console.log(data);}
