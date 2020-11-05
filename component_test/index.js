@@ -1,12 +1,14 @@
-let axios = require('axios').default;
-let fs = require('fs');
-axios.get(`http://localhost:3001/test/${process.env.DATA}`)
+let chai = require('chai')
+let chaiHttp = require('chai-http')
+chai.use(chaiHttp);
+async function response(){
 
-.then(data=>{
-    print(data.data)
-})
-.catch(err=>{
-    print(err.response.data)
-})
 
-let print = (data)=>{console.log(data);}
+    let chaiClient = chai.request.agent(`http://localhost:3001/`)
+
+    let res  = await chaiClient.get(`test/${process.env.DATA}`)
+
+    console.log(res);
+}
+
+response()
