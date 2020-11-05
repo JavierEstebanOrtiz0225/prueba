@@ -19,7 +19,7 @@ jobs:
 
                     cd component_test &&
                     npm install &&
-                    node index.js > artefact/response.html &&
+                    node index.js > artefact/response.html
               env:
                 DATA: ${{ github.event.inputs.microservice }}
 
