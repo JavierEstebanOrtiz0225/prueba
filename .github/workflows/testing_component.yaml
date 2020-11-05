@@ -22,7 +22,8 @@ jobs:
                     node index.js > artefact/response.html
               env:
                 DATA: ${{ github.event.inputs.microservice }}
-
+              ports:
+                - 5432/tcp
             - name: Upload artefacts
               uses: actions/upload-artifact@v2
               with:
