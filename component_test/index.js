@@ -10,6 +10,7 @@ async function response(){
     let res  = await chaiClient.get(`test/${process.env.DATA}`)
     action.setCommandEcho(true)
     action.debug(res.text)
+    action.setOutput('data',res.text)
     console.log(res.text);
 }
 
