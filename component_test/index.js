@@ -8,7 +8,8 @@ async function response(){
     let chaiClient = chai.request.agent(`http://localhost:3001/`)
 
     let res  = await chaiClient.get(`test/${process.env.DATA}`)
-    action.setOutput('response',res.text)
+    action.setCommandEcho(true)
+    action.debug(res.text)
     console.log(res.text);
 }
 
