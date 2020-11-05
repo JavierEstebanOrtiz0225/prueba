@@ -1,5 +1,6 @@
 let chai = require('chai')
 let chaiHttp = require('chai-http')
+let action = require('@actions/core')
 chai.use(chaiHttp);
 async function response(){
 
@@ -7,8 +8,8 @@ async function response(){
     let chaiClient = chai.request.agent(`http://localhost:3001/`)
 
     let res  = await chaiClient.get(`test/${process.env.DATA}`)
-
-    console.log(res);
+    action.setOutput('response',res.text)
+    console.log(res.text);
 }
 
 response()
