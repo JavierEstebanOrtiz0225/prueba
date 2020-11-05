@@ -17,9 +17,9 @@ jobs:
             - name: Setup images
               run: |
 
-                    cd component_test 
-                    npm install
-                    node index.js > artefact/response.html
+                    cd component_test &&
+                    npm install &&
+                    node index.js > artefact/response.html &&
               env:
                 DATA: ${{ github.event.inputs.microservice }}
 
